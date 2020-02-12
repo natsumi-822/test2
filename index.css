@@ -1,0 +1,290 @@
+@charset "UTF-8";
+@font-face {
+	font-family: 'DSEG7Modern-Bold';
+	src: url(DSEG7Modern-Bold.woff);
+}
+
+body {
+	font-family: 'Titillium Web', sans-serif;
+}
+
+p {
+	font-weight: bold;
+}
+
+.field {
+	width:100%;
+	height:1000px;
+	padding-top: 20px;
+	background-image: url("img/field.jpg");
+}
+
+.field_map {
+	width: 1040px;
+	margin: 20px auto 0;
+	height:500px;
+	border: solid 1px green;
+}
+
+.map_mass {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: solid 1px #000;
+}
+
+/*全ウィンドウ*/
+.window {
+	position: absolute;
+	z-index: 100;
+	padding: 10px;
+	background:#fff;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+}
+
+.statusWindow {
+	width: 200px;
+}
+
+.playerStatusWindow {
+	position: absolute;
+	z-index: 100;
+	width: 200px;
+	margin: -70px 0 0 -240px;
+	padding: 10px;
+	background:#fff;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	border: solid 2px blue;
+	line-height: normal;
+}
+
+.enemyStatusWindow {
+	position: absolute;
+	z-index: 100;
+	width: 200px;
+	margin: -20px 0 0 -240px;
+	padding: 10px;
+	background:#fff;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	line-height: normal;
+	border: solid 2px red;
+}
+
+.otherStatusWindow {
+	position: absolute;
+	z-index: 100;
+	width: 200px;
+	margin: -65px 0 0 60px;
+	padding: 10px;
+	background:#fff;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	line-height: normal;
+	border: solid 2px green;
+}
+
+.massageWindow {
+	bottom: -150px;
+	width:1000px;
+	height: 110px;
+	border: solid 2px green;
+}
+
+.comandWindow {
+	position: absolute;
+	z-index: 200;
+	width: 200px;
+	margin: -20px 0 0 65px;
+	padding: 10px;
+	background:#fff;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	border: solid 2px blue;
+	line-height: normal;
+}
+
+/*全キャラクター*/
+.unit {
+
+}
+
+.playerUnit {
+	width:50px;
+	height:50px;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	background-color:blue;
+}
+
+.enemyUnit{
+	width:50px;
+	height:50px;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	background-color:red;
+}
+
+.otherUnit{
+	width:50px;
+	height:50px;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	background-color: green;
+}
+
+input {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+
+
+.container{
+	width : 500px;
+	margin : 110px auto;
+}
+
+.info {
+	display :none;
+	width:54%;
+	height: 40px;
+	position: absolute;
+	top: 30px;
+	left: 0;
+  	right: 0;
+  	margin: auto;
+	padding: 15px;
+	background-color: #ffc247;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.info::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: -15px;
+  border-top: 15px solid #ffc247;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+}
+
+.contents-top,.contents-bottom {
+	margin : auto auto;
+	padding: 4% 6%;
+}
+
+.contents-top {
+	border-radius: 20px 20px 0 0;
+	background-color: #83c0c1;
+	box-shadow: 7px 4px 0 5px #5c8382;
+}
+
+.contents-top_logo {
+	margin-bottom: 10px;
+	color: #5c8382;
+	font-size: 22px;
+	font-family: 'Nico Moji';
+}
+
+.contents-top_printScreen {
+	height: 55px;
+	margin: auto 0 22px;
+	padding: 10px;
+	background-color: #efefef;
+	border-radius: 3px;
+	box-shadow: 0px -3px 1px 3px #a3a3a3;
+	color: #251c1d;
+	font-size: 50px;
+	font-family: DSEG7Modern-Bold;
+	text-align: end;
+}
+
+.contents-top_printScreen::before {
+  content: "⏎";
+}
+
+.contents-top_printScreenNozero::before{
+	content: none;
+}
+
+.contents-top_solarPanel {
+	width: 26%;
+	height: 30px;
+	margin-top: 15px;
+	background-color: #6a1e22;
+	box-shadow: 0px -3px 1px 3px #5c8382;
+	border-radius: 3px;
+	float :right;
+}
+
+.contents-top_Cbutton {
+	display: inline-block;
+	padding: 12px 10px;
+	border-radius: 30px;
+	border: 2px solid #5c8382;
+	background-color: #83c0c1;
+	box-shadow: 3px 3px 0 0px #5c8382;
+	color: #5c8382;
+	font-size: 24px;
+}
+
+.contents-bottom {
+	display: -webkit-box;
+	border-radius: 0 0 20px 20px;
+	background-color: #493b3b;
+	box-shadow: 6px 6px 0 6px #2f2629;
+}
+
+#text {
+	display: none;
+}
+
+.contents-bottom_numberButtonArea,
+.contents-bottom_signButtonArea{
+	display: -webkit-box;
+}
+
+.contents-bottom_numberButtonArea{
+	width: 70%;
+}
+
+.contents-bottom_signButtonArea{
+    width: 30%;
+}
+
+.contents-bottom_numberButton,
+.contents-bottom_signButton{
+	display: inline-block;
+	margin: 0 15px 25px 0;
+	width: 24%;
+    padding: 20px 0;
+    background-color: #493b3b;
+    box-shadow: 2px 4px 0 5px #2f2629;
+    border-radius: 8px;
+    border: none;
+    color: #83c0c1;
+    cursor: pointer;
+    font-size: 30px;
+    text-align: center;
+}
+
+.contents-bottom_signButton{
+	width: 42%;
+	padding: 27px 0px;
+}
+
+.contents-bottom_signButton:nth-child(2n){
+	margin-right: 0;
+}
+
+.contents-bottom_numberButton:hover,
+.contents-bottom_signButton:hover{
+	box-shadow: 1px 1px 0 1px #2f2629;
+	color: #5c8382;
+}
+
+.contents-bottom_numberButton:active,
+.contents-bottom_signButton:active{
+	box-shadow: none;
+	background-color: #2f2629;
+}
