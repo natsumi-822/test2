@@ -43,42 +43,22 @@ p {
 }
 
 .statusWindow {
-	width: 200px;
+	line-height: normal;
+	list-style: none;
 }
 
 .playerStatusWindow {
-	position: absolute;
-	z-index: 100;
-	width: 200px;
 	margin: -70px 0 0 -240px;
-	padding: 10px;
-	background:#fff;
-	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
 	border: solid 2px blue;
-	line-height: normal;
 }
 
 .enemyStatusWindow {
-	position: absolute;
-	z-index: 100;
-	width: 200px;
 	margin: -20px 0 0 -240px;
-	padding: 10px;
-	background:#fff;
-	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
-	line-height: normal;
 	border: solid 2px red;
 }
 
 .otherStatusWindow {
-	position: absolute;
-	z-index: 100;
-	width: 200px;
 	margin: -65px 0 0 60px;
-	padding: 10px;
-	background:#fff;
-	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
-	line-height: normal;
 	border: solid 2px green;
 }
 

@@ -38,33 +38,33 @@
 
 			showStatus(u) {//ステータスウィンドウ
 				if(windowOpenFlag === true){
-					$('.' + u + 'StatusWindow').hide();
-					$('.comandWindow').hide();
+					$('.' + u + 'StatusWindow').remove();
+					$('.comandWindow').remove();
 					windowOpenFlag = false;
 				}
 
 				else if(windowOpenFlag === false){
 					if(u === "player"){
-						$(".playerUnit").append("<div class ='" + u + "StatusWindow'></div>");
+						$(".playerUnit").append("<div class ='" + u + "StatusWindow statusWindow window'></div>");
 						//コマンドウィンドウ
 						$(".field_map").append("<div class ='comandWindow'></div>");
 						$(".comandWindow").append("<p class ='comandMove' data-id='move'>移動</p>");
 						$(".comandWindow").append("<p class ='comandAttack' data-id='attack'>攻撃</p>");
 					}
 					else if(u === "enemy"){
-						$(".enemyUnit").append("<div class ='" + u + "StatusWindow'></div>");
+						$(".enemyUnit").append("<div class ='" + u + "StatusWindow statusWindow window'></div>");
 					}
 					else if(u === "other"){
-						$(".otherUnit").append("<div class ='" + u + "StatusWindow'></div>");
+						$(".otherUnit").append("<div class ='" + u + "StatusWindow statusWindow window'></div>");
 					}
 
-					$('.' + u + 'StatusWindow').append("<p>" + this.getName() + "</p>");
-					$('.' + u + 'StatusWindow').append("<p>所属:" + this.getBelong() + "</p>");
-					$('.' + u + 'StatusWindow').append("<p>クラス:" + this.getJob() + "</p>");
-					$('.' + u + 'StatusWindow').append("<p>HP:" + this.getHp() + "</p>");
-					$('.' + u + 'StatusWindow').append("<p>攻撃力:" + this.getAttack() + "</p>");
-					$('.' + u + 'StatusWindow').append("<p>守備力:" +this.getDefense() + "</p>");
-					$('.' + u + 'StatusWindow').append("<p>移動:" +this.getDefense() + "</p>");
+					$('.' + u + 'StatusWindow').append("<li><em>" + this.getName() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>所属:<em>" + this.getBelong() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>クラス:<em>" + this.getJob() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>HP:<em>" + this.getHp() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>攻撃力:<em>" + this.getAttack() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>守備力:<em>" +this.getDefense() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>移動:<em>" +this.getDefense() + "</em></li>");
 					windowOpenFlag = true;
 				}
 			}
