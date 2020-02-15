@@ -103,8 +103,14 @@
 			}
 
 			unitPosition(p){
-				$("#mass" + p).append("<div class ='" + "playerUnit'></div>");
-				$("#mass" + p).append("<div class='unitMoveingArea'></div>");
+				$("#" + p).append("<div class ='" + "playerUnit'></div>");
+				var nowPsition = parseInt(p, 10);
+				for (var i = 1; i < 4; i++) {
+					//$("#" + (nowPsition+i)).append("<div class='unitMoveingArea'></div>");
+					//$("#" + (nowPsition-i)).append("<div class='unitMoveingArea'></div>");
+					$("#" + (nowPsition+20)).append("<div class='unitMoveingArea'></div>");
+					//$("#" + (nowPsition-20)).append("<div class='unitMoveingArea'></div>")
+				}
 			}
 
 			//キャラクター移動
@@ -129,7 +135,7 @@
 				this.move = 4;
 		    }
 			unitPosition(p){
-				$("#mass" + p).append("<div class ='" + "enemyUnit'></div>");
+				$("#" + p).append("<div class ='" + "enemyUnit'></div>");
 			}
 		}
 
@@ -146,7 +152,7 @@
 				this.move = 2;
 		    }
 			unitPosition(p){
-				$("#mass" + p).append("<div class ='" + "otherUnit'></div>");
+				$("#" + p).append("<div class ='" + "otherUnit'></div>");
 			}
 		}
 
@@ -168,23 +174,22 @@
 			var x = 0; var y = 0;
 			for (var i = 0; i < 10; i++){
 			    for (var j = 0; j < 20; j++){
-			    	fieldMapArray[x][y] = $(".field_map").append("<li class='map_mass' id= mass"+x+"_"+y+"></li>");
+			    	fieldMapArray[x][y] = $(".field_map").append("<li class='map_mass' id='" + y + "'></li>");
 			    	y++;
 			    }
 			    x++;
-			    y = 0;
 			    $(".field_map").append("<br>");
 			}
 
 			//ユニットを初期位置に出現させる
 			var t = new Torphin();
-			t.unitPosition("9_10");
+			t.unitPosition(110);
 
 			var e = new enemyUnit();
-			e.unitPosition("1_10");
+			e.unitPosition(10);
 
 			var o = new otherUnit();
-			o.unitPosition("4_5");
+			o.unitPosition(5);
 
 			//味方ユニットクリック
 			$(".playerUnit").click(function(){
