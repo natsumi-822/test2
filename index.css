@@ -30,8 +30,8 @@ p {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	margin-bottom: -4px;
 	border: solid 1px #000;
+	margin-bottom: -4px;
 }
 
 /*全ウィンドウ*/
@@ -113,6 +113,13 @@ p {
 	width:50px;
 	height:50px;
 	background-color:blue;
+	opacity:0.5;
+}
+
+.unitAttackArea {
+	width:50px;
+	height:50px;
+	background-color:red;
 	opacity:0.5;
 }
 

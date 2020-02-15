@@ -1,5 +1,7 @@
 		//グローバル変数
 		var windowOpenFlag = false;
+		var unitPositionFlag = false;
+		var unitPositionAreaFlag = false;
 
 		//インターフェース
 		class Human {
@@ -99,18 +101,53 @@
 				this.hp = 15;
 				this.attack = 7;
 				this.defense = 3;
-				this.move = 4;
+				this.move = 2;
 			}
 
 			unitPosition(p){
-				$("#" + p).append("<div class ='" + "playerUnit'></div>");
-				var nowPsition = parseInt(p, 10);
-				for (var i = 1; i < 4; i++) {
-					//$("#" + (nowPsition+i)).append("<div class='unitMoveingArea'></div>");
-					//$("#" + (nowPsition-i)).append("<div class='unitMoveingArea'></div>");
-					$("#" + (nowPsition+20)).append("<div class='unitMoveingArea'></div>");
-					//$("#" + (nowPsition-20)).append("<div class='unitMoveingArea'></div>")
+				if(unitPositionFlag === false){
+					$("#" + p).append("<div class ='" + "playerUnit'></div>");
+					unitPositionFlag = true;
 				}
+				//移動 & 攻撃マスを出力
+				if(unitPositionAreaFlag === true){
+					$(".map_mass").removeClass('unitMoveingArea unitAttackArea');
+					unitPositionAreaFlag = false;
+				}
+				var num = 20;
+				var nowPsition = parseInt(p, 10);
+				for (var i = 1; i < this.move+1; i++) {//移動可能範囲マス 縦横出力
+					$("#" + (nowPsition+i)).addClass("unitMoveingArea");
+					$("#" + (nowPsition-i)).addClass("unitMoveingArea");
+					$("#" + (nowPsition+(num*i))).addClass("unitMoveingArea");
+					$("#" + (nowPsition-(num*i))).addClass("unitMoveingArea");
+
+					if(i === this.move/2){//移動可能範囲マス ななめ
+						$("#" + (nowPsition+i+num)).addClass("unitMoveingArea");
+						$("#" + (nowPsition+i-num)).addClass("unitMoveingArea");
+						$("#" + (nowPsition-i+num)).addClass("unitMoveingArea");
+						$("#" + (nowPsition-i-num)).addClass("unitMoveingArea");
+					}
+
+					if(i === this.move){//Attackマス出力
+						//縦横
+						$("#" + (nowPsition+this.move+1)).addClass("unitAttackArea");
+						$("#" + (nowPsition-this.move-1)).addClass("unitAttackArea");
+						$("#" + (nowPsition+(this.move*num)+num)).addClass("unitAttackArea");
+						$("#" + (nowPsition-(this.move*num)-num)).addClass("unitAttackArea");
+						//右斜め
+						$("#" + (nowPsition+this.move+num)).addClass("unitAttackArea");
+						$("#" + (nowPsition+this.move-num)).addClass("unitAttackArea");
+						$("#" + (nowPsition-this.move+num)).addClass("unitAttackArea");
+						$("#" + (nowPsition-this.move-num)).addClass("unitAttackArea");
+						//左斜め
+						$("#" + (nowPsition+this.move+(num*this.move)-1)).addClass("unitAttackArea");
+						$("#" + (nowPsition+this.move-(num*this.move)-1)).addClass("unitAttackArea");
+						$("#" + (nowPsition-(num*this.move)-1)).addClass("unitAttackArea");
+						$("#" + (nowPsition+(num*this.move)-1)).addClass("unitAttackArea");
+					}
+				}
+				unitPositionAreaFlag = true;
 			}
 
 			//キャラクター移動
@@ -207,6 +244,7 @@
 			//移動
 			$(".map_mass").on("click",function(){
 				var mapMass = $(this).attr('id');
+				t.unitPosition(mapMass);
 				t.moving(mapMass);
 			});
 			$('.comandWindow').click(function() {
