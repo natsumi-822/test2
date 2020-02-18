@@ -41,6 +41,7 @@
 
 			showStatus(u) {//ステータスウィンドウ
 				if(windowOpenFlag === true){
+					$('.' + u + 'StatusWindow').fadeOut(200).slideDown(500);
 					$('.' + u + 'StatusWindow').remove();
 					$('.comandWindow').remove();
 					//移動範囲閉じる
@@ -49,26 +50,37 @@
 
 				else if(windowOpenFlag === false){
 					if(u === "player"){
-						$(".playerUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+						$(".field").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+						$(".statusWindow").hide().fadeIn(200).slideDown(500);
 						//コマンドウィンドウ
-						$(".playerUnit").append("<ul class ='comandWindow'></ul>");
+						$(".field").append("<ul class ='comandWindow window'></ul>");
 						$(".comandWindow").append("<li class ='comandMove'>移動</li>");
 						$(".comandWindow").append("<li class ='comandAttack'>攻撃</li>");
+						$(".comandWindow").append("<li class ='comandAttack'>待機</li>");
+						$(".comandWindow li").hover(
+							function() {
+								$(this).stop().animate({'marginRight':'40px'},'fast');
+							},
+							function() {
+								$(this).stop().animate({'marginRight':'0px'},'fast');
+							});
 					}
 					else if(u === "enemy"){
 						$(".enemyUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+						$(".statusWindow").hide().fadeIn(200).slideDown(500);
 					}
 					else if(u === "other"){
 						$(".otherUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+						$(".statusWindow").hide().fadeIn(200).slideDown(500);
 					}
 
 					$('.' + u + 'StatusWindow').append("<li><em>" + this.getName() + "</em></li>");
-					$('.' + u + 'StatusWindow').append("<li>所属　<em>" + this.getBelong() + "</em></li>");
-					$('.' + u + 'StatusWindow').append("<li>クラス　<em>" + this.getJob() + "</em></li>");
-					$('.' + u + 'StatusWindow').append("<li>HP　<em>" + this.getHp() + "</em></li>");
-					$('.' + u + 'StatusWindow').append("<li>攻撃力　<em>" + this.getAttack() + "</em></li>");
-					$('.' + u + 'StatusWindow').append("<li>守備力　<em>" +this.getDefense() + "</em></li>");
-					$('.' + u + 'StatusWindow').append("<li>移動　<em>" +this.getDefense() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>BELONG　<em>" + this.getBelong() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>CLASS　<em>" + this.getJob() + "</em></li>");
+					$('.' + u + 'StatusWindow').append("<li>HP　<em><span>" + this.getHp() + "</span></em></li>");
+					$('.' + u + 'StatusWindow').append("<li>ATTACK　<em><span>" + this.getAttack() + "</span></em></li>");
+					$('.' + u + 'StatusWindow').append("<li>DEFENSE　<em><span>" +this.getDefense() + "</span></em></li>");
+					$('.' + u + 'StatusWindow').append("<li>MOVE　<em><span>" +this.getMove() + "</span></em></li>");
 					windowOpenFlag = true;
 				}
 			}
@@ -147,6 +159,8 @@
 						$("#" + (nowPsition+(num*this.move)-1)).addClass("unitAttackArea");
 					}
 				}
+				//$(".unitAttackArea").hide();
+				//$(".unitMoveingArea").hide();
 				unitPositionAreaFlag = true;
 			}
 
@@ -163,12 +177,12 @@
 		class enemyUnit extends Unit{
 			constructor(name,belong,job,hp,attack,defense,move) {
 				super();
-				this.name = "敵ヴァイキング";
+				this.name = "トルケル";
 				this.belong = "トルケル傭兵団";
-				this.job = "傭兵";
-				this.hp = 15;
-				this.attack = 5;
-				this.defense = 4;
+				this.job = "団長";
+				this.hp = 60;
+				this.attack = 35;
+				this.defense = 30;
 				this.move = 4;
 		    }
 			unitPosition(p){
@@ -180,9 +194,9 @@
 		class otherUnit extends Unit{
 			constructor(name,belong,job,hp,attack,defense,move) {
 				super();
-				this.name = "おじさん";
-				this.belong = "シンプル村";
-				this.job = "村人";
+				this.name = "クヌート";
+				this.belong = "クヌート軍";
+				this.job = "王子";
 				this.hp = 8;
 				this.attack = 1;
 				this.defense = 2;
@@ -232,6 +246,7 @@
 			$(".playerUnit").click(function(){
 				t.showStatus("player");
 			})
+
 			//敵ユニット
 			$(".enemyUnit").click(function(){
 				e.showStatus("enemy");
@@ -240,15 +255,19 @@
 			$(".otherUnit").click(function(){
 				o.showStatus("other");
 			})
+			//移動コマンド
+			$('.comandWindow .comandMove').click(function() {
+				console.log(aaa);
+				$(".unitAttackArea").show();
+				$(".unitMoveingArea").show();
+			});
 
 			//移動
-			$(".map_mass").on("click",function(){
+			$('.unitMoveingArea').click(function() {
 				var mapMass = $(this).attr('id');
 				t.unitPosition(mapMass);
 				t.moving(mapMass);
-			});
-			$('.comandWindow').click(function() {
-				t.moving();
+				$('.map_mass').removeClass('unitMoveingArea unitAttackArea');
 			});
 
 			//攻撃

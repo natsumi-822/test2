@@ -1,15 +1,11 @@
 @charset "UTF-8";
 @font-face {
-	font-family: 'DSEG7Modern-Bold';
-	src: url(DSEG7Modern-Bold.woff);
 }
 
 body {
-	font-family: 'Titillium Web', sans-serif;
-}
-
-p {
-	font-weight: bold;
+	@import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+	font-family: 'Oswald', sans-serif;
+	font-family: 'Noto Serif JP', serif;
 }
 
 .field {
@@ -41,11 +37,33 @@ p {
 	padding: 15px;
 	background:#fff;
 	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	line-height: normal;
+	list-style: none;
 }
 
 .statusWindow {
-	line-height: normal;
-	list-style: none;
+	top: 0;
+    width: 32%;
+	height: -webkit-fill-available;
+	background-blend-mode: hard-light;
+	color:#fff;
+	font-size: 20px;
+}
+
+.statusWindow em {
+	font-size: 35px;
+}
+
+.statusWindow span{
+    font-weight: bold;
+}
+
+.statusWindow li {
+	width: fit-content;
+	margin: 0 0 8px -15px;
+	padding-left: 20px;
+	background: linear-gradient(90deg, rgba(0, 0, 0, .9), rgba(0, 0, 0, .0));
+	line-height: 3.6rem;
 }
 
 .statusWindow li:first-child {
@@ -53,18 +71,23 @@ p {
 }
 
 .playerStatusWindow {
-	margin: -70px 0 0 -240px;
-	border: solid 2px blue;
+	background: linear-gradient(-45deg, rgba(0, 46, 255, .6), rgba(0, 2, 34, .8)),
+	url(img/torphin.jpg);
+	background-size: cover;
 }
 
 .enemyStatusWindow {
-	margin: -20px 0 0 -240px;
-	border: solid 2px red;
+	right: 0;
+    background: linear-gradient(90deg, rgba(255, 0, 0, .6), rgba(0, 0, 34, .8)),
+	url(img/torker.jpg);
+	background-size: cover;
 }
 
 .otherStatusWindow {
-	margin: -65px 0 0 60px;
-	border: solid 2px green;
+	right: 0;
+	background: linear-gradient(90deg, rgba(0, 255, 19, .6), rgba(0, 48, 14, .8)),
+	url(img/knu-t.jpg);
+	background-size: cover;
 }
 
 .massageWindow {
@@ -75,15 +98,20 @@ p {
 }
 
 .comandWindow {
-	position: absolute;
-	z-index: 200;
-	width: 200px;
-	margin: -20px 0 0 65px;
-	padding: 10px;
-	background:#fff;
-	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
-	border: solid 2px blue;
-	line-height: normal;
+	top: 40%;
+	right: 0;
+	width: 8%;
+	background: linear-gradient(-45deg, rgba(0, 46, 255, .6), rgba(0, 2, 34, .8));
+	color: #fff;
+}
+
+.comandWindow li {
+	margin: 0 0 8px -15px;
+	padding-left: 20px;
+	background: linear-gradient(90deg, rgba(0, 0, 0, .9), rgba(0, 0, 0, .0));
+	cursor: pointer;
+	font-size: 20px;
+	line-height: 3.6rem;
 }
 
 /*全キャラクター*/
@@ -112,176 +140,14 @@ p {
 .unitMoveingArea {
 	width:50px;
 	height:50px;
-	background-color:blue;
-	opacity:0.5;
+	background: linear-gradient(90deg, rgba(0, 46, 255, .8), rgba(0, 2, 34, .8));
+	cursor: pointer;
+	opacity: 0.8;
 }
 
 .unitAttackArea {
 	width:50px;
 	height:50px;
-	background-color:red;
-	opacity:0.5;
-}
-
-
-input {
-	font-weight: bold;
-	font-size: 30px;
-}
-
-
-
-.container{
-	width : 500px;
-	margin : 110px auto;
-}
-
-.info {
-	display :none;
-	width:54%;
-	height: 40px;
-	position: absolute;
-	top: 30px;
-	left: 0;
-  	right: 0;
-  	margin: auto;
-	padding: 15px;
-	background-color: #ffc247;
-    border-radius: 40px;
-    text-align: center;
-}
-
-.info::before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: -15px;
-  border-top: 15px solid #ffc247;
-  border-right: 15px solid transparent;
-  border-left: 15px solid transparent;
-}
-
-.contents-top,.contents-bottom {
-	margin : auto auto;
-	padding: 4% 6%;
-}
-
-.contents-top {
-	border-radius: 20px 20px 0 0;
-	background-color: #83c0c1;
-	box-shadow: 7px 4px 0 5px #5c8382;
-}
-
-.contents-top_logo {
-	margin-bottom: 10px;
-	color: #5c8382;
-	font-size: 22px;
-	font-family: 'Nico Moji';
-}
-
-.contents-top_printScreen {
-	height: 55px;
-	margin: auto 0 22px;
-	padding: 10px;
-	background-color: #efefef;
-	border-radius: 3px;
-	box-shadow: 0px -3px 1px 3px #a3a3a3;
-	color: #251c1d;
-	font-size: 50px;
-	font-family: DSEG7Modern-Bold;
-	text-align: end;
-}
-
-.contents-top_printScreen::before {
-  content: "⏎";
-}
-
-.contents-top_printScreenNozero::before{
-	content: none;
-}
-
-.contents-top_solarPanel {
-	width: 26%;
-	height: 30px;
-	margin-top: 15px;
-	background-color: #6a1e22;
-	box-shadow: 0px -3px 1px 3px #5c8382;
-	border-radius: 3px;
-	float :right;
-}
-
-.contents-top_Cbutton {
-	display: inline-block;
-	padding: 12px 10px;
-	border-radius: 30px;
-	border: 2px solid #5c8382;
-	background-color: #83c0c1;
-	box-shadow: 3px 3px 0 0px #5c8382;
-	color: #5c8382;
-	font-size: 24px;
-}
-
-.contents-bottom {
-	display: -webkit-box;
-	border-radius: 0 0 20px 20px;
-	background-color: #493b3b;
-	box-shadow: 6px 6px 0 6px #2f2629;
-}
-
-#text {
-	display: none;
-}
-
-.contents-bottom_numberButtonArea,
-.contents-bottom_signButtonArea{
-	display: -webkit-box;
-}
-
-.contents-bottom_numberButtonArea{
-	width: 70%;
-}
-
-.contents-bottom_signButtonArea{
-    width: 30%;
-}
-
-.contents-bottom_numberButton,
-.contents-bottom_signButton{
-	display: inline-block;
-	margin: 0 15px 25px 0;
-	width: 24%;
-    padding: 20px 0;
-    background-color: #493b3b;
-    box-shadow: 2px 4px 0 5px #2f2629;
-    border-radius: 8px;
-    border: none;
-    color: #83c0c1;
-    cursor: pointer;
-    font-size: 30px;
-    text-align: center;
-}
-
-.contents-bottom_signButton{
-	width: 42%;
-	padding: 27px 0px;
-}
-
-.contents-bottom_signButton:nth-child(2n){
-	margin-right: 0;
-}
-
-.contents-bottom_numberButton:hover,
-.contents-bottom_signButton:hover{
-	box-shadow: 1px 1px 0 1px #2f2629;
-	color: #5c8382;
-}
-
-.contents-bottom_numberButton:active,
-.contents-bottom_signButton:active{
-	box-shadow: none;
-	background-color: #2f2629;
+	background: linear-gradient(90deg, rgba(255, 0, 0, .8), rgba(113, 0, 0, .8));
+	opacity: 0.8;
 }
