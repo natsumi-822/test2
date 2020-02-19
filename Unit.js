@@ -1,7 +1,6 @@
 		//グローバル変数
 		var windowOpenFlag = false;
-		var unitPositionFlag = false;
-		var unitPositionAreaFlag = false;
+		var turn = 1;
 
 		//インターフェース
 		class Human {
@@ -43,7 +42,7 @@
 				if(windowOpenFlag === true){
 					$('.' + u + 'StatusWindow').fadeOut(200).slideDown(500);
 					$('.' + u + 'StatusWindow').remove();
-					$('.comandWindow').remove();
+
 					//移動範囲閉じる
 					windowOpenFlag = false;
 				}
@@ -52,18 +51,6 @@
 					if(u === "player"){
 						$(".field").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
 						$(".statusWindow").hide().fadeIn(200).slideDown(500);
-						//コマンドウィンドウ
-						$(".field").append("<ul class ='comandWindow window'></ul>");
-						$(".comandWindow").append("<li class ='comandMove'>移動</li>");
-						$(".comandWindow").append("<li class ='comandAttack'>攻撃</li>");
-						$(".comandWindow").append("<li class ='comandAttack'>待機</li>");
-						$(".comandWindow li").hover(
-							function() {
-								$(this).stop().animate({'marginRight':'40px'},'fast');
-							},
-							function() {
-								$(this).stop().animate({'marginRight':'0px'},'fast');
-							});
 					}
 					else if(u === "enemy"){
 						$(".enemyUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
@@ -117,18 +104,15 @@
 			}
 
 			unitPosition(p){
-				if(unitPositionFlag === false){
-					$("#" + p).append("<div class ='" + "playerUnit'></div>");
-					unitPositionFlag = true;
-				}
+				$("#" + p).append("<div class ='" + "playerUnit'></div>");
+			}
+
+			unitMoveingArea(p){
 				//移動 & 攻撃マスを出力
-				if(unitPositionAreaFlag === true){
-					$(".map_mass").removeClass('unitMoveingArea unitAttackArea');
-					unitPositionAreaFlag = false;
-				}
 				var num = 20;
 				var nowPsition = parseInt(p, 10);
 				for (var i = 1; i < this.move+1; i++) {//移動可能範囲マス 縦横出力
+					$("#" + nowPsition).addClass("unitMoveingArea");
 					$("#" + (nowPsition+i)).addClass("unitMoveingArea");
 					$("#" + (nowPsition-i)).addClass("unitMoveingArea");
 					$("#" + (nowPsition+(num*i))).addClass("unitMoveingArea");
@@ -159,9 +143,6 @@
 						$("#" + (nowPsition+(num*this.move)-1)).addClass("unitAttackArea");
 					}
 				}
-				//$(".unitAttackArea").hide();
-				//$(".unitMoveingArea").hide();
-				unitPositionAreaFlag = true;
 			}
 
 			//キャラクター移動
@@ -231,6 +212,8 @@
 			    x++;
 			    $(".field_map").append("<br>");
 			}
+			//ターン数
+			$(".turnWindow").append("Turn <span>" + turn + "</span>");
 
 			//ユニットを初期位置に出現させる
 			var t = new Torphin();
@@ -242,36 +225,64 @@
 			var o = new otherUnit();
 			o.unitPosition(5);
 
+			//コマンドウィンドウ
+			$(".field").append("<ul class ='comandWindow window'></ul>");
+			$(".comandWindow").append("<li class ='comandMove'>移動</li>");
+			$(".comandWindow").append("<li class ='comandAttack'>攻撃</li>");
+			$(".comandWindow").append("<li class ='comandStatus'>状態</li>");
+			$(".comandWindow").append("<li class ='comandWaiting'>待機</li>");
+			$(".comandWindow li").hover(
+				function() {
+					$(this).stop().animate({'marginRight':'40px'},'fast');
+				},
+				function() {
+					$(this).stop().animate({'marginRight':'0px'},'fast');
+				});
+
 			//味方ユニットクリック
 			$(".playerUnit").click(function(){
 				t.showStatus("player");
-			})
+			});
 
 			//敵ユニット
 			$(".enemyUnit").click(function(){
 				e.showStatus("enemy");
-			})
+			});
 			//他ユニット
 			$(".otherUnit").click(function(){
 				o.showStatus("other");
-			})
+			});
+
 			//移動コマンド
-			$('.comandWindow .comandMove').click(function() {
-				console.log(aaa);
-				$(".unitAttackArea").show();
-				$(".unitMoveingArea").show();
-			});
-
-			//移動
-			$('.unitMoveingArea').click(function() {
-				var mapMass = $(this).attr('id');
+			$('.comandMove').click(function() {
+				var mapMass = $('.playerUnit').parent().attr('id');
 				t.unitPosition(mapMass);
-				t.moving(mapMass);
-				$('.map_mass').removeClass('unitMoveingArea unitAttackArea');
+				t.unitMoveingArea(mapMass);
+				//移動アニメ
+				$('.unitMoveingArea').click(function() {
+					var mapMass = $(this).attr('id');
+					t.moving(mapMass);
+				});
 			});
-
 			//攻撃
 			$('.comandAttack').click(function() {
 				$(".massageWindow").append(t.attackOn(e));
-				})
 			});
+
+			//状態
+			$(".comandStatus").click(function(){
+				t.showStatus("player");
+			});
+
+			//待機
+			$(".comandWaiting").click(function(){
+				$('.map_mass').removeClass('unitMoveingArea unitAttackArea');
+				var mapMass = $('.playerUnit').parent().attr('id');
+				$("#" + p).append("<div class ='" + "playerUnit'></div>");
+				t.unitPosition(mapMass);
+				t.unitMoveingArea(mapMass);
+				turn++;
+				$(".turnWindow").html("Turn <span>" + turn + "</span>");
+			});
+		});//(document).ready
+

@@ -37,6 +37,7 @@ body {
 	padding: 15px;
 	background:#fff;
 	box-shadow: 0px 3px 15px rgba(0,0,0,0.5);
+	color: #fff;
 	line-height: normal;
 	list-style: none;
 }
@@ -46,8 +47,8 @@ body {
     width: 32%;
 	height: -webkit-fill-available;
 	background-blend-mode: hard-light;
-	color:#fff;
 	font-size: 20px;
+	z-index: 200;
 }
 
 .statusWindow em {
@@ -102,7 +103,6 @@ body {
 	right: 0;
 	width: 8%;
 	background: linear-gradient(-45deg, rgba(0, 46, 255, .6), rgba(0, 2, 34, .8));
-	color: #fff;
 }
 
 .comandWindow li {
@@ -112,6 +112,17 @@ body {
 	cursor: pointer;
 	font-size: 20px;
 	line-height: 3.6rem;
+}
+
+.turnWindow {
+	right: 0;
+	width: 8%;
+	background: linear-gradient(90deg, rgba(0, 46, 255, .6), rgba(0, 2, 34, .8));
+	line-height: 1.5rem;
+}
+
+.turnWindow span {
+	font-size: 35px;
 }
 
 /*全キャラクター*/
