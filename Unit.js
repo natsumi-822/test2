@@ -1,5 +1,6 @@
 		//グローバル変数
 		var windowOpenFlag = false;
+		var prayerUnitPotionId = 110;
 		var turn = 1;
 
 		//インターフェース
@@ -104,7 +105,7 @@
 			}
 
 			unitPosition(p){
-				$("#" + p).append("<div class ='" + "playerUnit'></div>");
+				$("#" + p).append("<div class ='" + "playerUnit'><div class='unitHpGauge'><div class='unitHpGaugeInner'></div></div></div>");
 			}
 
 			unitMoveingArea(p){
@@ -151,6 +152,15 @@
 				var newUnitPosition = $("#" + p);
 				var position = newUnitPosition.position();
 				$(".playerUnit").animate({left: position.left, top: position.top});
+			}
+
+			//キャラクター待機
+			waiting(){
+				$('.map_mass').removeClass('unitMoveingArea unitAttackArea');
+				$(".playerUnit").remove();
+				//ターン追加
+				turn++;
+				$(".turnWindow").html("Turn <span>" + turn + "</span>");
 			}
 		}
 
@@ -217,7 +227,7 @@
 
 			//ユニットを初期位置に出現させる
 			var t = new Torphin();
-			t.unitPosition(110);
+			t.unitPosition(prayerUnitPotionId);
 
 			var e = new enemyUnit();
 			e.unitPosition(10);
@@ -237,7 +247,7 @@
 				},
 				function() {
 					$(this).stop().animate({'marginRight':'0px'},'fast');
-				});
+			});
 
 			//味方ユニットクリック
 			$(".playerUnit").click(function(){
@@ -255,13 +265,11 @@
 
 			//移動コマンド
 			$('.comandMove').click(function() {
-				var mapMass = $('.playerUnit').parent().attr('id');
-				t.unitPosition(mapMass);
-				t.unitMoveingArea(mapMass);
+				t.unitMoveingArea(prayerUnitPotionId);
 				//移動アニメ
 				$('.unitMoveingArea').click(function() {
-					var mapMass = $(this).attr('id');
-					t.moving(mapMass);
+					prayerUnitPotionId = $(this).attr('id');
+					t.moving(prayerUnitPotionId);
 				});
 			});
 			//攻撃
@@ -276,13 +284,9 @@
 
 			//待機
 			$(".comandWaiting").click(function(){
-				$('.map_mass').removeClass('unitMoveingArea unitAttackArea');
-				var mapMass = $('.playerUnit').parent().attr('id');
-				$("#" + p).append("<div class ='" + "playerUnit'></div>");
-				t.unitPosition(mapMass);
-				t.unitMoveingArea(mapMass);
-				turn++;
-				$(".turnWindow").html("Turn <span>" + turn + "</span>");
+				t.waiting();
+				//味方ユニットの位置を再設定
+				t.unitPosition(prayerUnitPotionId);
 			});
 		});//(document).ready
 
