@@ -1,3 +1,4 @@
+
 		//グローバル変数
 		var windowOpenFlag = false;
 		var prayerUnitPotionId = 110;
@@ -235,19 +236,7 @@
 			var o = new otherUnit();
 			o.unitPosition(5);
 
-			//コマンドウィンドウ
-			$(".field").append("<ul class ='comandWindow window'></ul>");
-			$(".comandWindow").append("<li class ='comandMove'>移動</li>");
-			$(".comandWindow").append("<li class ='comandAttack'>攻撃</li>");
-			$(".comandWindow").append("<li class ='comandStatus'>状態</li>");
-			$(".comandWindow").append("<li class ='comandWaiting'>待機</li>");
-			$(".comandWindow li").hover(
-				function() {
-					$(this).stop().animate({'marginRight':'40px'},'fast');
-				},
-				function() {
-					$(this).stop().animate({'marginRight':'0px'},'fast');
-			});
+			$('.field').load('comandNav.html');
 
 			//味方ユニットクリック
 			$(".playerUnit").click(function(){
