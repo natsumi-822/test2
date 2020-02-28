@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>テスト</title>
+<script>
+
+//従来の関数
+//function(引数){本体}
+
+//アロー関数
+//(引数) => {本体}
+
+//引数が1つの場合は()を省略できる。
+//x => {本体}
+
+//関数本体が1行の場合は{}が省略できる
+//x => alert(x)
+
+//引数がない場合は()は省略できません
+//() => {本体}
+
+
+	let test = function(x){
+		console.log(x);
+	}
+
+	//処理1行のとき{}いらない
+	let test2 = (y) => console.log(y);
+	test('昔');
+	test2('今')
+
+	let human ={
+		name: 'human',
+		color: 'pink',
+		hello: function(){
+			console.log('my name is' + this.name);
+		},
+		look: function(){
+			var id = setTimeout(() => {
+				console.log('色は' + this.color);
+			},2500);
+		}
+	}
+	//clearTimeout(id);
+	human.hello();
+	human.look();
+</script>
+</head>
+<body>
+	<main>
+
+	</main>
+</body>
+</html>
+

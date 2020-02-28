@@ -92,10 +92,10 @@ body {
 }
 
 .massageWindow {
-	bottom: -150px;
 	width:1000px;
 	height: 110px;
 	border: solid 2px green;
+	color: #000;
 }
 
 .comandWindow {
