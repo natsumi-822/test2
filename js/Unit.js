@@ -41,8 +41,7 @@ class Unit extends Human{
 
 	showStatus(u) {//ステータスウィンドウ
 		if(windowOpenFlag === true){
-			$('.' + u + 'StatusWindow').fadeOut(200).slideDown(500);
-			$('.' + u + 'StatusWindow').remove();
+			$(`.${u}StatusWindow`).fadeOut(500).remove();
 
 			//移動範囲閉じる
 			windowOpenFlag = false;
@@ -51,15 +50,15 @@ class Unit extends Human{
 		else if(windowOpenFlag === false){
 			if(u === "player"){
 				$(".field").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
-				$(".statusWindow").hide().fadeIn(200).slideDown(500);
+				$(".statusWindow").hide().fadeIn(200);
 			}
 			else if(u === "enemy"){
 				$(".enemyUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
-				$(".statusWindow").hide().fadeIn(200).slideDown(500);
+				$(".statusWindow").hide().fadeIn(200);
 			}
 			else if(u === "other"){
 				$(".otherUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
-				$(".statusWindow").hide().fadeIn(200).slideDown(500);
+				$(".statusWindow").hide().fadeIn(200);
 			}
 
 			$('.' + u + 'StatusWindow').append("<li><em>" + this.getName() + "</em></li>");
@@ -115,11 +114,11 @@ class Torphin extends playerUnit{
 		let num = 20;
 		let nowPsition = parseInt(p, 10);
 		for (var i = 1; i < this.move+1; i++) {//移動可能範囲マス 縦横出力
-			$("#" + nowPsition).addClass("unitMoveingArea");
-			$("#" + (nowPsition+i)).addClass("unitMoveingArea");
-			$("#" + (nowPsition-i)).addClass("unitMoveingArea");
-			$("#" + (nowPsition+(num*i))).addClass("unitMoveingArea");
-			$("#" + (nowPsition-(num*i))).addClass("unitMoveingArea");
+			$(`#${nowPsition}`).addClass("unitMoveingArea");
+			$(`#${nowPsition + i}`).addClass("unitMoveingArea");
+			$(`#${nowPsition - i}`).addClass("unitMoveingArea");
+			$(`#${nowPsition + (num * i)}`).addClass("unitMoveingArea");
+			$(`#${nowPsition - (num * i)}`).addClass("unitMoveingArea");
 
 			if(i === this.move/2){//移動可能範囲マス ななめ
 				$("#" + (nowPsition+i+num)).addClass("unitMoveingArea");
@@ -196,7 +195,7 @@ class otherUnit extends Unit{
 		this.move = 2;
 	}
 	unitPosition(p){
-		$("#" + p).append("<div class ='" + "otherUnit'></div>");
+		$(`#${p}`).append("<div class ='" + "otherUnit'></div>");
 	}
 }
 

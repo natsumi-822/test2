@@ -18,13 +18,15 @@
 	<div class="field">
 		<!--コマンドウィンド-->
 		<script>
+		$(function(){
 			$(".comandWindow li").hover(
 				function() {
 					$(this).stop().animate({'marginRight':'40px'},'fast');
 				},
 				function() {
 					$(this).stop().animate({'marginRight':'0px'},'fast');
-			});
+				});
+		});
 		</script>
 		<ul class ='comandWindow window'>
 			<li class ='comandMove'>移動</li>
