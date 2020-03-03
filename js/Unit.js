@@ -49,25 +49,25 @@ class Unit extends Human{
 
 		else if(windowOpenFlag === false){
 			if(u === "player"){
-				$(".field").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+				$(".field").append(`<ul class ='${u}StatusWindow statusWindow window'></ul>`);
 				$(".statusWindow").hide().fadeIn(200);
 			}
 			else if(u === "enemy"){
-				$(".enemyUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+				$(".enemyUnit").append(`<ul class ='${u}StatusWindow statusWindow window'></ul>`);
 				$(".statusWindow").hide().fadeIn(200);
 			}
 			else if(u === "other"){
-				$(".otherUnit").append("<ul class ='" + u + "StatusWindow statusWindow window'></ul>");
+				$(".otherUnit").append(`<ul class ='${u}StatusWindow statusWindow window'></ul>`);
 				$(".statusWindow").hide().fadeIn(200);
 			}
 
-			$('.' + u + 'StatusWindow').append("<li><em>" + this.getName() + "</em></li>");
-			$('.' + u + 'StatusWindow').append("<li>BELONG　<em>" + this.getBelong() + "</em></li>");
-			$('.' + u + 'StatusWindow').append("<li>CLASS　<em>" + this.getJob() + "</em></li>");
-			$('.' + u + 'StatusWindow').append("<li>HP　<em><span>" + this.getHp() + "</span></em></li>");
-			$('.' + u + 'StatusWindow').append("<li>ATTACK　<em><span>" + this.getAttack() + "</span></em></li>");
-			$('.' + u + 'StatusWindow').append("<li>DEFENSE　<em><span>" +this.getDefense() + "</span></em></li>");
-			$('.' + u + 'StatusWindow').append("<li>MOVE　<em><span>" +this.getMove() + "</span></em></li>");
+			$(`.${u}StatusWindow`).append(`<li>${this.getName()}</li>`);
+			$(`.${u}StatusWindow`).append(`<li>BELONG　${this.getBelong()}</li>`);
+			$(`.${u}StatusWindow`).append(`<li>CLASS　${this.getJob()}</li>`);
+			$(`.${u}StatusWindow`).append(`<li>HP　<span>${this.getHp()}</span></li>`);
+			$(`.${u}StatusWindow`).append(`<li>ATTACK　<span>${this.getAttack()}</span></li>`);
+			$(`.${u}StatusWindow`).append(`<li>DEFENSE　<span>${this.getDefense()}</span></li>`);
+			$(`.${u}StatusWindow`).append(`<li>MOVE　<span>${this.getMove()}</span></li>`);
 			windowOpenFlag = true;
 		}
 	}
@@ -81,7 +81,37 @@ class playerUnit extends Unit {
 
 	//攻撃
 	attackOn(e, playerHp){
-		//$( ".unitHpGaugeInner" ).css( "width" , hogeWidth );
+		let hpGauge = this.getHp();
+		console.log(hpGauge);
+		switch(hpGauge) {
+			case 1 >= hpGauge - hpGauge:
+				$(".unitHpGaugeInner").css({
+					'width': '90%',
+					'background-color':'green'
+				});
+				break;
+
+			case hpGauge < hpGauge / 2:
+				$(".unitHpGaugeInner").css({
+					'width': '50%',
+					'background-color':'orange'
+				});
+				break;
+
+			case hpGauge < hpGauge / 3:
+				$(".unitHpGaugeInner").css({
+					'width': '20%',
+					'background-color':'red'
+				});
+				break;
+
+			default:
+				$(".unitHpGaugeInner").css({
+					'width': '100%',
+					'background-color':'blue'
+				});
+		}
+
 		e.hp -= this.attak;
 		$(".massageWindow").append(`<p>${e.hp}</p>`)
 		let intEhp =  parseInt(e.hp);
@@ -106,7 +136,7 @@ class Torphin extends playerUnit{
 	}
 
 	unitPosition(p){
-		$("#" + p).append("<div class ='" + "playerUnit'><div class='unitHpGauge'><div class='unitHpGaugeInner'></div></div></div>");
+		$(`#${p}`).append("<div class ='playerUnit'><div class='unitHpGauge'><div class='unitHpGaugeInner'></div></div></div>");
 	}
 
 	unitMoveingArea(p){
@@ -121,28 +151,28 @@ class Torphin extends playerUnit{
 			$(`#${nowPsition - (num * i)}`).addClass("unitMoveingArea");
 
 			if(i === this.move/2){//移動可能範囲マス ななめ
-				$("#" + (nowPsition+i+num)).addClass("unitMoveingArea");
-				$("#" + (nowPsition+i-num)).addClass("unitMoveingArea");
-				$("#" + (nowPsition-i+num)).addClass("unitMoveingArea");
-				$("#" + (nowPsition-i-num)).addClass("unitMoveingArea");
+				$(`#${nowPsition + num + i}`).addClass("unitMoveingArea");
+				$(`#${nowPsition - num + i}`).addClass("unitMoveingArea");
+				$(`#${nowPsition - i + num}`).addClass("unitMoveingArea");
+				$(`#${nowPsition - i - num}`).addClass("unitMoveingArea");
 			}
 
 			if(i === this.move){//Attackマス出力
 				//縦横
-				$("#" + (nowPsition+this.move+1)).addClass("unitAttackArea");
-				$("#" + (nowPsition-this.move-1)).addClass("unitAttackArea");
-				$("#" + (nowPsition+(this.move*num)+num)).addClass("unitAttackArea");
-				$("#" + (nowPsition-(this.move*num)-num)).addClass("unitAttackArea");
+				$(`#${nowPsition + this.move + 1}`).addClass("unitAttackArea");
+				$(`#${nowPsition - this.move - 1}`).addClass("unitAttackArea");
+				$(`#${nowPsition + (this.move * num) + num}`).addClass("unitAttackArea");
+				$(`#${nowPsition - (this.move * num) - num}`).addClass("unitAttackArea");
 				//右斜め
-				$("#" + (nowPsition+this.move+num)).addClass("unitAttackArea");
-				$("#" + (nowPsition+this.move-num)).addClass("unitAttackArea");
-				$("#" + (nowPsition-this.move+num)).addClass("unitAttackArea");
-				$("#" + (nowPsition-this.move-num)).addClass("unitAttackArea");
+				$(`#${nowPsition + this.move + num}`).addClass("unitAttackArea");
+				$(`#${nowPsition + this.move - num}`).addClass("unitAttackArea");
+				$(`#${nowPsition - this.move + num}`).addClass("unitAttackArea");
+				$(`#${nowPsition - this.move - num}`).addClass("unitAttackArea");
 				//左斜め
-				$("#" + (nowPsition+this.move+(num*this.move)-1)).addClass("unitAttackArea");
-				$("#" + (nowPsition+this.move-(num*this.move)-1)).addClass("unitAttackArea");
-				$("#" + (nowPsition-(num*this.move)-1)).addClass("unitAttackArea");
-				$("#" + (nowPsition+(num*this.move)-1)).addClass("unitAttackArea");
+				$(`#${nowPsition + this.move + (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPsition + this.move - (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPsition - (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPsition + (num * this.move) -1}`).addClass("unitAttackArea");
 			}
 		}
 	}
@@ -150,7 +180,7 @@ class Torphin extends playerUnit{
 	//キャラクター移動
 	moving(p){
 		//クリックされたマスid取得
-		let newUnitPosition = $("#" + p);
+		let newUnitPosition = $(`#${p}`);
 		let position = newUnitPosition.position();
 		$(".playerUnit").animate({left: position.left, top: position.top});
 	}
@@ -161,7 +191,7 @@ class Torphin extends playerUnit{
 		$(".playerUnit").remove();
 		//ターン追加
 		turn++;
-		$(".turnWindow").html("Turn <span>" + turn + "</span>");
+		$(".turnWindow").html(`Turn <span>${turn}</span>`);
 	}
 }
 
@@ -178,7 +208,7 @@ class enemyUnit extends Unit{
 		this.move = 4;
 	}
 	unitPosition(p){
-		$("#" + p).append("<div class ='" + "enemyUnit'></div>");
+		$(`#${p}`).append("<div class='enemyUnit'></div>");
 	}
 }
 
@@ -195,7 +225,7 @@ class otherUnit extends Unit{
 		this.move = 2;
 	}
 	unitPosition(p){
-		$(`#${p}`).append("<div class ='" + "otherUnit'></div>");
+		$(`#${p}`).append("<div class='otherUnit'></div>");
 	}
 }
 
@@ -217,14 +247,14 @@ $(document).ready(function(){
 	let x = 0; let y = 0;
 	for (var i = 0; i < 10; i++){
 		for (var j = 0; j < 20; j++){
-			fieldMapArray[x][y] = $(".field_map").append("<li class='map_mass' id='" + y + "'></li>");
+			fieldMapArray[x][y] = $(".field_map").append(`<li class='map_mass' id='${y}'></li>`);
 			y++;
 		}
 		x++;
 		$(".field_map").append("<br>");
 	}
 	//ターン数
-	$(".turnWindow").append("Turn <span>" + turn + "</span>");
+	$(".turnWindow").append(`Turn <span>${turn}</span>`);
 
 	//ユニットを初期位置に出現させる
 	var t = new Torphin();
