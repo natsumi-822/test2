@@ -1,18 +1,21 @@
 //グローバル変数
 let windowOpenFlag = false;
-let prayerUnitPotionId = 110;
+let playerUnitPotionId = 110;
+let enemyUnitPotionId = 10;
 let turn = 1;
 
 //インターフェース
 class Human {
-	constructor(name,hp,attack,defense,move) {
+	constructor(name,maxHp,hp,attack,defense,move) {
 		this.name = name;
+		this.maxHp = maxHp;
 		this.hp = hp;
 		this.attack = attack;
 		this.defense = defense;
 		this.move = move;
 	}
 	getName() {return this.name;}
+	getMaxHp() {return this.maxHp;}
 	getHp() {return this.hp;}
 	getAttack() {return this.attack;}
 	getDefense() {return this.defense;}
@@ -25,11 +28,12 @@ class Human {
 
 //全種ユニット
 class Unit extends Human{
-	constructor(name,belong,job,hp,attack,defense,move) {
+	constructor(name,belong,job,hp,maxHp,attack,defense,move) {
 		super();
 		this.name = name;
 		this.belong = belong;
 		this.job = job;
+		this.maxHp = maxHp;
 		this.hp = hp;
 		this.attack = attack;
 		this.defense = defense;
@@ -64,7 +68,7 @@ class Unit extends Human{
 			$(`.${u}StatusWindow`).append(`<li>${this.getName()}</li>`);
 			$(`.${u}StatusWindow`).append(`<li>BELONG　${this.getBelong()}</li>`);
 			$(`.${u}StatusWindow`).append(`<li>CLASS　${this.getJob()}</li>`);
-			$(`.${u}StatusWindow`).append(`<li>HP　<span>${this.getHp()}</span></li>`);
+			$(`.${u}StatusWindow`).append(`<li>HP　<span>${this.getHp()} / ${this.getMaxHp()}</span></li>`);
 			$(`.${u}StatusWindow`).append(`<li>ATTACK　<span>${this.getAttack()}</span></li>`);
 			$(`.${u}StatusWindow`).append(`<li>DEFENSE　<span>${this.getDefense()}</span></li>`);
 			$(`.${u}StatusWindow`).append(`<li>MOVE　<span>${this.getMove()}</span></li>`);
@@ -80,56 +84,38 @@ class playerUnit extends Unit {
 	}
 
 	//攻撃
-	attackOn(e, playerHp){
-		let hpGauge = this.getHp();
-		console.log(hpGauge);
-		switch(hpGauge) {
-			case 1 >= hpGauge - hpGauge:
-				$(".unitHpGaugeInner").css({
-					'width': '90%',
-					'background-color':'green'
-				});
-				break;
-
-			case hpGauge < hpGauge / 2:
-				$(".unitHpGaugeInner").css({
-					'width': '50%',
-					'background-color':'orange'
-				});
-				break;
-
-			case hpGauge < hpGauge / 3:
-				$(".unitHpGaugeInner").css({
-					'width': '20%',
-					'background-color':'red'
-				});
-				break;
-
-			default:
-				$(".unitHpGaugeInner").css({
-					'width': '100%',
-					'background-color':'blue'
-				});
+	attackOn(e,unit){
+		e.hp -= this.getAttack();
+		$(".massageWindow").append(`<p>${this.getName()}の攻撃！${e.name}に${this.getAttack()}ダメージ！</p>`);
+		if(e.hp <= 0){
+			$(`.${unit}Unit`).remove();
+			$(".massageWindow").append(`<p>${e.name}戦闘不能！</p>`);
 		}
 
-		e.hp -= this.attak;
-		$(".massageWindow").append(`<p>${e.hp}</p>`)
-		let intEhp =  parseInt(e.hp);
-		$(".massageWindow").append("<p>" + this.getName() + "の攻撃！敵に"+ this.getAttack() + "ダメージ！" + intEhp + "</p>");
-		if(e.hp <= 0){
-			$(".massageWindow").append("<p>" + this.getName() + "戦闘不能！</p>");
+		let hp = e.hp / e.maxHp * 100;//残HPが何%か
+		$(`.${unit}Unit .unitHpGaugeInner`).css('width',`${hp}%`);
+
+		if(hp >= 90){
+			$(`.${unit}Unit .unitHpGaugeInner`).css('background','linear-gradient(-90deg, rgba(0, 46, 255, .8), rgba(0, 2, 34, .8))');
+		}
+		else if(hp < 90 && hp > 60){
+			$(`.${unit}Unit .unitHpGaugeInner`).css('background','linear-gradient(-90deg, rgba(0, 255, 19, .6), rgba(0, 48, 14, .8))');
+		}
+		else if(hp < 40 && hp >= 1){
+			$(`.${unit}Unit .unitHpGaugeInner`).css('background','linear-gradient(-90deg, rgba(255, 0, 0, .6), rgba(0, 0, 34, .8))');
 		}
 	}
 }
 
 //トルフィン
 class Torphin extends playerUnit{
-	constructor(name,belong,job,hp,attack,defense,move) {
+	constructor(name,belong,job,maxHp,hp,attack,defense,move) {
 		super();
 		this.name = "トルフィン";
 		this.belong = "アシェラッド傭兵団";
 		this.job = "傭兵";
-		this.hp = 15;
+		this.maxHp = 15;
+		this.hp = 12;
 		this.attack = 7;
 		this.defense = 3;
 		this.move = 2;
@@ -143,6 +129,7 @@ class Torphin extends playerUnit{
 		//移動 & 攻撃マスを出力
 		let num = 20;
 		let nowPsition = parseInt(p, 10);
+
 		for (var i = 1; i < this.move+1; i++) {//移動可能範囲マス 縦横出力
 			$(`#${nowPsition}`).addClass("unitMoveingArea");
 			$(`#${nowPsition + i}`).addClass("unitMoveingArea");
@@ -180,6 +167,12 @@ class Torphin extends playerUnit{
 	//キャラクター移動
 	moving(p){
 		//クリックされたマスid取得
+		console.log(p);
+		console.log(enemyUnitPotionId+20);
+		if(p === enemyUnitPotionId+20 || p === enemyUnitPotionId-20 || p === enemyUnitPotionId+1 || p === enemyUnitPotionId-1){
+			console.log(aaa);
+			$('.comandAttack').css('display','block');
+		}
 		let newUnitPosition = $(`#${p}`);
 		let position = newUnitPosition.position();
 		$(".playerUnit").animate({left: position.left, top: position.top});
@@ -197,35 +190,37 @@ class Torphin extends playerUnit{
 
 //敵ユニット
 class enemyUnit extends Unit{
-	constructor(name,belong,job,hp,attack,defense,move) {
+	constructor(name,belong,job,maxHp,hp,attack,defense,move) {
 		super();
 		this.name = "トルケル";
 		this.belong = "トルケル傭兵団";
 		this.job = "団長";
+		this.maxHp = 60;
 		this.hp = 60;
 		this.attack = 35;
 		this.defense = 30;
 		this.move = 4;
 	}
 	unitPosition(p){
-		$(`#${p}`).append("<div class='enemyUnit'></div>");
+		$(`#${p}`).append("<div class='enemyUnit'><div class='unitHpGauge'><div class='unitHpGaugeInner'></div></div></div>");
 	}
 }
 
 //その他ユニット
 class otherUnit extends Unit{
-	constructor(name,belong,job,hp,attack,defense,move) {
+	constructor(name,belong,job,maxHp,hp,attack,defense,move) {
 		super();
 		this.name = "クヌート";
 		this.belong = "クヌート軍";
 		this.job = "王子";
+		this.maxHp = 8;
 		this.hp = 8;
 		this.attack = 1;
 		this.defense = 2;
 		this.move = 2;
 	}
 	unitPosition(p){
-		$(`#${p}`).append("<div class='otherUnit'></div>");
+		$(`#${p}`).append("<div class='otherUnit'><div class='unitHpGauge'><div class='unitHpGaugeInner'></div></div></div>");
 	}
 }
 
@@ -253,15 +248,18 @@ $(document).ready(function(){
 		x++;
 		$(".field_map").append("<br>");
 	}
+	//攻撃コマンド非表示
+	$('.comandAttack').css('display','none');
+
 	//ターン数
 	$(".turnWindow").append(`Turn <span>${turn}</span>`);
 
 	//ユニットを初期位置に出現させる
 	var t = new Torphin();
-	t.unitPosition(prayerUnitPotionId);
+	t.unitPosition(playerUnitPotionId);
 
 	var e = new enemyUnit();
-	e.unitPosition(10);
+	e.unitPosition(enemyUnitPotionId);
 
 	var o = new otherUnit();
 	o.unitPosition(5);
@@ -277,16 +275,16 @@ $(document).ready(function(){
 
 	//移動コマンド
 	$('.comandMove').click(() => {
-		t.unitMoveingArea(prayerUnitPotionId);
+		t.unitMoveingArea(playerUnitPotionId);
 		//移動アニメ
 		$('.unitMoveingArea').click(event => {
-			prayerUnitPotionId = $(event.currentTarget).attr('id');
-			t.moving(prayerUnitPotionId);
+			playerUnitPotionId = $(event.currentTarget).attr('id');
+			t.moving(playerUnitPotionId);
 		});
 	});
 	//攻撃
 	$('.comandAttack').click(() => {
-		t.attackOn(e, this.hp);
+		t.attackOn(e,"enemy");
 	});
 
 	//状態
@@ -296,7 +294,7 @@ $(document).ready(function(){
 	$(".comandWaiting").click(() => {
 		t.waiting();
 		//味方ユニットの位置を再設定
-		t.unitPosition(prayerUnitPotionId);
+		t.unitPosition(playerUnitPotionId);
 	});
 });//(document).ready
 
