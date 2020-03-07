@@ -1,7 +1,7 @@
 //グローバル変数
 let windowOpenFlag = false;
 let playerUnitPotionId = 110;
-let enemyUnitPotionId = 10;
+let enemyUnitPositionId = 10;
 let turn = 1;
 
 //インターフェース
@@ -55,14 +55,17 @@ class Unit extends Human{
 			if(u === "player"){
 				$(".field").append(`<ul class ='${u}StatusWindow statusWindow window'></ul>`);
 				$(".statusWindow").hide().fadeIn(200);
+				windowOpenFlag = true;
 			}
 			else if(u === "enemy"){
 				$(".enemyUnit").append(`<ul class ='${u}StatusWindow statusWindow window'></ul>`);
 				$(".statusWindow").hide().fadeIn(200);
+				windowOpenFlag = true;
 			}
 			else if(u === "other"){
 				$(".otherUnit").append(`<ul class ='${u}StatusWindow statusWindow window'></ul>`);
 				$(".statusWindow").hide().fadeIn(200);
+				windowOpenFlag = true;
 			}
 
 			$(`.${u}StatusWindow`).append(`<li>${this.getName()}</li>`);
@@ -72,7 +75,6 @@ class Unit extends Human{
 			$(`.${u}StatusWindow`).append(`<li>ATTACK　<span>${this.getAttack()}</span></li>`);
 			$(`.${u}StatusWindow`).append(`<li>DEFENSE　<span>${this.getDefense()}</span></li>`);
 			$(`.${u}StatusWindow`).append(`<li>MOVE　<span>${this.getMove()}</span></li>`);
-			windowOpenFlag = true;
 		}
 	}
 }//unitEnd
@@ -85,11 +87,17 @@ class playerUnit extends Unit {
 
 	//攻撃
 	attackOn(e,unit){
+		$('.js-modal').fadeIn();
+		$('.js-modal-close').on('click',function(){
+			$('.js-modal').fadeOut();
+			$('.modal__content').empty();
+		});
 		e.hp -= this.getAttack();
-		$(".massageWindow").append(`<p>${this.getName()}の攻撃！${e.name}に${this.getAttack()}ダメージ！</p>`);
+
+		$(".modal__content").append(`<p>${this.getName()}の攻撃！${e.name}に${this.getAttack()}ダメージ！</p>`);
 		if(e.hp <= 0){
 			$(`.${unit}Unit`).remove();
-			$(".massageWindow").append(`<p>${e.name}戦闘不能！</p>`);
+			$(".modal__content").append(`<p>${e.name}戦闘不能！</p>`);
 		}
 
 		let hp = e.hp / e.maxHp * 100;//残HPが何%か
@@ -128,54 +136,59 @@ class Torphin extends playerUnit{
 	unitMoveingArea(p){
 		//移動 & 攻撃マスを出力
 		let num = 20;
-		let nowPsition = parseInt(p, 10);
-
+		let nowPosition = parseInt(p, 10);
 		for (var i = 1; i < this.move+1; i++) {//移動可能範囲マス 縦横出力
-			$(`#${nowPsition}`).addClass("unitMoveingArea");
-			$(`#${nowPsition + i}`).addClass("unitMoveingArea");
-			$(`#${nowPsition - i}`).addClass("unitMoveingArea");
-			$(`#${nowPsition + (num * i)}`).addClass("unitMoveingArea");
-			$(`#${nowPsition - (num * i)}`).addClass("unitMoveingArea");
+			if(!(nowPosition === enemyUnitPositionId)){
+				$(`#${nowPosition}`).addClass("unitMoveingArea");
+				$(`#${nowPosition + i}`).addClass("unitMoveingArea");
+				$(`#${nowPosition - i}`).addClass("unitMoveingArea");
+				$(`#${nowPosition + (num * i)}`).addClass("unitMoveingArea");
+				$(`#${nowPosition - (num * i)}`).addClass("unitMoveingArea");
 
-			if(i === this.move/2){//移動可能範囲マス ななめ
-				$(`#${nowPsition + num + i}`).addClass("unitMoveingArea");
-				$(`#${nowPsition - num + i}`).addClass("unitMoveingArea");
-				$(`#${nowPsition - i + num}`).addClass("unitMoveingArea");
-				$(`#${nowPsition - i - num}`).addClass("unitMoveingArea");
+				if(i === this.move/2){//移動可能範囲マス ななめ
+					$(`#${nowPosition + num + i}`).addClass("unitMoveingArea");
+					$(`#${nowPosition - num + i}`).addClass("unitMoveingArea");
+					$(`#${nowPosition - i + num}`).addClass("unitMoveingArea");
+					$(`#${nowPosition - i - num}`).addClass("unitMoveingArea");
+				}
 			}
 
 			if(i === this.move){//Attackマス出力
 				//縦横
-				$(`#${nowPsition + this.move + 1}`).addClass("unitAttackArea");
-				$(`#${nowPsition - this.move - 1}`).addClass("unitAttackArea");
-				$(`#${nowPsition + (this.move * num) + num}`).addClass("unitAttackArea");
-				$(`#${nowPsition - (this.move * num) - num}`).addClass("unitAttackArea");
+				$(`#${nowPosition + this.move + 1}`).addClass("unitAttackArea");
+				$(`#${nowPosition - this.move - 1}`).addClass("unitAttackArea");
+				$(`#${nowPosition + (this.move * num) + num}`).addClass("unitAttackArea");
+				$(`#${nowPosition - (this.move * num) - num}`).addClass("unitAttackArea");
 				//右斜め
-				$(`#${nowPsition + this.move + num}`).addClass("unitAttackArea");
-				$(`#${nowPsition + this.move - num}`).addClass("unitAttackArea");
-				$(`#${nowPsition - this.move + num}`).addClass("unitAttackArea");
-				$(`#${nowPsition - this.move - num}`).addClass("unitAttackArea");
+				$(`#${nowPosition + this.move + num}`).addClass("unitAttackArea");
+				$(`#${nowPosition + this.move - num}`).addClass("unitAttackArea");
+				$(`#${nowPosition - this.move + num}`).addClass("unitAttackArea");
+				$(`#${nowPosition - this.move - num}`).addClass("unitAttackArea");
 				//左斜め
-				$(`#${nowPsition + this.move + (num * this.move) -1}`).addClass("unitAttackArea");
-				$(`#${nowPsition + this.move - (num * this.move) -1}`).addClass("unitAttackArea");
-				$(`#${nowPsition - (num * this.move) -1}`).addClass("unitAttackArea");
-				$(`#${nowPsition + (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPosition + this.move + (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPosition + this.move - (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPosition - (num * this.move) -1}`).addClass("unitAttackArea");
+				$(`#${nowPosition + (num * this.move) -1}`).addClass("unitAttackArea");
 			}
 		}
 	}
 
 	//キャラクター移動
 	moving(p){
-		//クリックされたマスid取得
-		console.log(p);
-		console.log(enemyUnitPotionId+20);
-		if(p === enemyUnitPotionId+20 || p === enemyUnitPotionId-20 || p === enemyUnitPotionId+1 || p === enemyUnitPotionId-1){
-			console.log(aaa);
+		let newUnitPosition = $(`#${p}`);
+		let nowPosition = parseInt(p, 10);
+		let position = newUnitPosition.position();
+		if(!(nowPosition === enemyUnitPositionId)){
+			$(".playerUnit").animate({left: position.left, top: position.top});
+		}
+		//攻撃コマンド出す
+		let attackFront = enemyUnitPositionId - 20;
+		let attackBack = enemyUnitPositionId + 20;
+		let attackRight = enemyUnitPositionId + 1;
+		let attackLeft = enemyUnitPositionId - 1;
+		if(nowPosition === attackFront || nowPosition === attackBack || nowPosition === attackRight || nowPosition === attackLeft){
 			$('.comandAttack').css('display','block');
 		}
-		let newUnitPosition = $(`#${p}`);
-		let position = newUnitPosition.position();
-		$(".playerUnit").animate({left: position.left, top: position.top});
 	}
 
 	//キャラクター待機
@@ -259,7 +272,7 @@ $(document).ready(function(){
 	t.unitPosition(playerUnitPotionId);
 
 	var e = new enemyUnit();
-	e.unitPosition(enemyUnitPotionId);
+	e.unitPosition(enemyUnitPositionId);
 
 	var o = new otherUnit();
 	o.unitPosition(5);
