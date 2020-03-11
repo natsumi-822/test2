@@ -8,7 +8,7 @@ body {
 
 .field {
 	width:100%;
-	height:1000px;
+	height:100vw;
 	padding-top: 20px;
 	background-image: url("../img/field.jpg");
 }
@@ -47,10 +47,6 @@ body {
 	background-blend-mode: hard-light;
 	font-size: 20px;
 	z-index: 200;
-}
-
-.statusWindow em {
-	font-size: 35px;
 }
 
 .statusWindow span{
