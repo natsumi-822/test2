@@ -7,22 +7,23 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <title>portfolio</title>
   </head>
   <body>
 	<main>
 		<!-- nav -->
-		<nav class="navbar navbar-light bg-light">
-			<a class="navbar-brand" href="#!">portfolio</a>
+		<nav class="navbar navbar-light p-3">
+			<a class="navbar-brand font-weight-bold" href="#!">portfolio</a>
 		    <ul class="nav justify-content-end" id="myTab" role="tablist">
 		  		<li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a></li>
 	  			<li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a></li>
 	  			<li class="nav-item"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a></li>
 			</ul>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			<!--  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     			<span class="navbar-toggler-icon"></span>
-			</button>
+			</button>-->
 		</nav>
 
 		<!-- top -->
@@ -36,7 +37,7 @@
 			      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
 			    </ol>
 
-			    <div class="carousel-inner" role="listbox">
+			    <div class="carousel-inner mb-5" role="listbox">
 			      <div class="carousel-item active">
 			        <img class="d-block w-100" src="img/top_img.png" alt="First slide">
 			        <div class="carousel-caption d-none d-md-block">
@@ -64,20 +65,118 @@
 			</div>
 		  </div>
 		</div>
+		<div class="container">
+		    <!-- Three columns of text below the carousel -->
+			<div class="d-flex">
+		      <div class="col-lg-4 text-center col-sm-12">
+		      	<i class="fab fa-html5 fa-5x img-fluid text-danger mb-1 "alt="HTML5 icon"></i>
+		        <h2>HTML5</h2>
+		        <div class="card">
+				  <div class="card-body">
+				    <h4 class="card-title"><i class="fas fa-user-tie fa-fw"></i>Work experience</h4>
+				    <h6 class="card-subtitle mb-2 text-muted">2years</h6>
+				    <p class="card-text">
+				      Some quick example text to build on the card title
+				      and make up the bulk of the card's content.
+				    </p>
+				    <a href="#!" class="card-link">Card link</a>
+				    <a href="#!" class="card-link">Another link</a>
+				  </div>
+				</div>
+		        <h6 class="card-subtitle mb-2 text-muted"></h6>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil1-->
+
+		      <div class="col-lg-4 text-center">
+		      	<i class="fab fa-css3-alt fa-5x img-fluid text-primary mb-1"alt="CSS3 icon"></i>
+		        <h2>CSS3</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil2-->
+
+		      <div class="col-lg-4 text-center">
+		      	<i class="fab fa-js-square fa-5x img-fluid text-warning mb-1"alt="js icon"></i>
+		        <h2>javascript</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+			  </div><!-- skil3-->
+			</div><!-- /.d-flex-->
+		    <div class="d-flex mt-5 pt-3">
+		      <div class="col-lg-4 text-center">
+		      	<i class="fab fa-java fa-5x img-fluid text-warning mb-1" alt="JAVA icon"></i>
+		        <h2>JAVA</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil4-->
+
+		      <div class="col-lg-4 text-center">
+		      	<i class="fas fa-database fa-5x img-fluid text-dark mb-1"alt="SQL icon"></i>
+		        <h2>SQL</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil5-->
+
+		      <div class="col-lg-4 text-center">
+		      	<i class="fab fa-js-square fa-5x img-fluid text-warning mb-1"alt="HTML5 icon"></i>
+		        <h2>javascript</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil6-->
+		    </div><!-- /.d-flex -->
+
+
+	    <!-- START THE FEATURETTES -->
+
+	    <hr class="featurette-divider">
+
+	    <div class="row featurette">
+	      <div class="col-md-7">
+	        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+	        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	      </div>
+	      <div class="col-md-5">
+	        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+	      </div>
+	    </div>
+
+	    <hr class="featurette-divider">
+
+	    <div class="row featurette">
+	      <div class="col-md-7 order-md-2">
+	        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+	        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	      </div>
+	      <div class="col-md-5 order-md-1">
+	        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+	      </div>
+	    </div>
+
+	    <hr class="featurette-divider">
+
+	    <div class="row featurette">
+	      <div class="col-md-7">
+	        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+	        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+	      </div>
+	      <div class="col-md-5">
+	        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+	      </div>
+	    </div>
+
+	    <hr class="featurette-divider">
+
+	    <!-- /END THE FEATURETTES -->
+
+  </div>
 
 		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><h1>Hello, world!</h1></div>
 		<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><h1>Hello, world!</h1></div>
 
 		<!-- footer -->
-		<footer class="bg-dark text-white">
-			<div class="d-flex">
-				<div class="p-3 flex-fill">
-					aaaa
-				</div>
-				<div class="p-2 flex-fill">Flex item</div>
-				<div class="p-2 flex-fill">Flex item</div>
-			</div>
-		</footer>
+		<footer class="w-100 text-center bg-secondary text-white text-monospace p-3">
+			<p class="font-weight-bold ">Contact<i class="fas fa-envelope-open-text mr-2 ml-2" aria-hidden="true"></i>822genico@gmail.com</p>
+    		<p>© 2020 All rights reserved. NatsumiMasui</p>
+  		</footer>
 
 	</main>
     <!-- Optional JavaScript -->
