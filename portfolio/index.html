@@ -14,20 +14,17 @@
   <body>
 	<main>
 		<!-- nav -->
-		<nav class="navbar navbar-light p-3">
-			<a class="navbar-brand font-weight-bold" href="#!">portfolio</a>
-		    <ul class="nav justify-content-end" id="myTab" role="tablist">
+		<nav class="sticky-top navbar bg-white text-secondary p-3">
+			<a class="navbar-brand font-weight-bold text-secondary" href="#!">n.portfolio</a>
+		    <ul class="nav justify-content-end nav-pills" id="navTab" role="tablist">
 		  		<li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a></li>
-	  			<li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a></li>
+	  			<li class="nav-item"><a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="false">About</a></li>
 	  			<li class="nav-item"><a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a></li>
 			</ul>
-			<!--  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    			<span class="navbar-toggler-icon"></span>
-			</button>-->
 		</nav>
 
 		<!-- top -->
-		<div class="tab-content" id="myTabContent">
+		<div class="tab-content" id="navTabContent">
 		  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 		  	<div class="bd-example">
 			  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -41,8 +38,8 @@
 			      <div class="carousel-item active">
 			        <img class="d-block w-100" src="img/top_img.png" alt="First slide">
 			        <div class="carousel-caption d-none d-md-block">
-			          <h3>First slide label</h3>
-			          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			          <h3>Thanks for coming!</h3>
+			          <p>I am a Japanese Web Designer and Engineer.<br>I work in Japan.</p>
 			        </div>
 			      </div>
 			      <div class="carousel-item">
@@ -64,9 +61,59 @@
 			  </div>
 			</div>
 		  </div>
-		</div>
+
 		<div class="container">
-		    <!-- Three columns of text below the carousel -->
+		    <div class="d-flex">
+		    	<ul class="nav justify-content-end nav-pills" id="navTab" role="tablist">
+			      <div class="col-lg-4 text-center col-sm-12">
+			      	<span class="fa-stack fa-5x">
+	  					<i class="fas fa-circle fa-stack-2x"></i>
+	  					<i class="fas fa-palette fa-stack-1x text-white"></i>
+					</span>
+			        <h2>Design</h2>
+			        <div class="card">
+					  <div class="card-body">
+					    <h4 class="card-title"><i class="fas fa-user-tie fa-fw"></i>Work experience</h4>
+					    <h6 class="card-subtitle mb-2 text-muted">2years</h6>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="card-link">Card link</a>
+					    <a href="#!" class="card-link">Another link</a>
+					  </div>
+					</div>
+			        <h6 class="card-subtitle mb-2 text-muted"></h6>
+			        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+			      </div><!-- skil1-->
+
+			      <div class="col-lg-4 text-center">
+			      	<span class="fa-stack fa-5x">
+	  					<i class="fas fa-circle fa-stack-2x"></i>
+	  					<i class="fas fa-laptop-code fa-stack-1x text-white"></i>
+					</span>
+			        <h2>Front End</h2>
+			        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+			        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+			      </div><!-- skil2-->
+
+			      <div class="col-lg-4 text-center">
+			      	<span class="fa-stack fa-5x">
+	  					<i class="fas fa-circle fa-stack-2x"></i>
+	  					<i class="fas fa-server fa-stack-1x text-white"></i>
+					</span>
+			        <h2>Back End</h2>
+			        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+			        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+				  </div><!-- skil3-->
+			</div><!-- /.d-flex-->
+			<div class="jumbotron jumbotron-fluid">
+ 				 <div class="container">
+    				<h1 class="display-3">Fluid jumbotron</h1>
+    				<p class="lead">This is a modified jumbotron that occupies
+                    the entire horizontal space of its parent.</p>
+  				</div>
+			</div>
 			<div class="d-flex">
 		      <div class="col-lg-4 text-center col-sm-12">
 		      	<i class="fab fa-html5 fa-5x img-fluid text-danger mb-1 "alt="HTML5 icon"></i>
@@ -110,20 +157,45 @@
 		      </div><!-- skil4-->
 
 		      <div class="col-lg-4 text-center">
-		      	<i class="fas fa-database fa-5x img-fluid text-dark mb-1"alt="SQL icon"></i>
-		        <h2>SQL</h2>
+		      	<span class="fa-stack fa-3x mb-1">
+  					<i class="fas fa-file fa-stack-2x text-secondary" alt="HTML5 icon"></i>
+  					<i class="fab fa-java fa-stack-1x text-white mb-1" alt="JSP icon"></i>
+				</span>
+		        <h2>JSP</h2>
 		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
 		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
 		      </div><!-- skil5-->
 
 		      <div class="col-lg-4 text-center">
-		      	<i class="fab fa-js-square fa-5x img-fluid text-warning mb-1"alt="HTML5 icon"></i>
-		        <h2>javascript</h2>
+		      	<i class="fas fa-database fa-5x img-fluid text-dark mb-1"alt="SQL icon"></i>
+		        <h2>SQL</h2>
 		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
 		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
 		      </div><!-- skil6-->
-		    </div><!-- /.d-flex -->
+		     </div><!-- /.d-flex -->
 
+		     <div class="d-flex mt-5 pt-3">
+		      <div class="col-lg-4 text-center">
+		      	<i class="fab fa-php fa-5x img-fluid text-warning mb-1" alt="PHP icon"></i>
+		        <h2>PHP</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil7-->
+
+		      <div class="col-lg-4 text-center">
+				<i class="fab fa-python fa-5x img-fluid text-warning mb-1" alt="Python icon"></i>
+		        <h2>Python</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil8-->
+
+		      <div class="col-lg-4 text-center">
+		      	<i class="fas fa-file-excel fa-5x img-fluid text-dark mb-1"alt="VBA icon"></i>
+		        <h2>VBA</h2>
+		        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+		        <p><a class="btn btn-info" href="#" role="button">View details »</a></p>
+		      </div><!-- skil9-->
+		     </div><!-- /.d-flex -->
 
 	    <!-- START THE FEATURETTES -->
 
@@ -165,11 +237,12 @@
 
 	    <hr class="featurette-divider">
 
-	    <!-- /END THE FEATURETTES -->
+  	</div><!-- /END THE container-->
+  </div><!-- /END THE tab-pane1-->
 
-  </div>
-
-		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><h1>Hello, world!</h1></div>
+		<div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="abput-tab">
+			<h1>About</h1>
+		</div>
 		<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><h1>Hello, world!</h1></div>
 
 		<!-- footer -->
