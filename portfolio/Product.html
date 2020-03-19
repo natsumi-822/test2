@@ -18,10 +18,10 @@
 			<nav class="navbar bg-white text-secondary p-3">
 				<a class="navbar-brand" href="#!">Portfolio 3Levels</a>
 			    <ul class="nav justify-content-end nav-pills">
-			  		<li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-			  		<li class="nav-item"><a class="nav-link" href="Product.html">Product</a></li>
-		  			<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-		  			<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+			  		<li class="nav-item"><a class="nav-link active" href="product.html">Product</a></li>
+		  			<li class="nav-item"><a class="nav-link" href="#about" aria-selected="false">About</a></li>
+		  			<li class="nav-item"><a class="nav-link" href="#contact" aria-selected="false">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -30,66 +30,116 @@
 			<a class="navbar-brand mx-1 font-weight-bold" href="#!">3Levels</a>
 		    <ul class="nav justify-content-end nav-pills">
 		  		<li class="nav-item"><a class="nav-link active" href="index.html" aria-selected="true">Home</a></li>
-		  		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="Product.html" aria-selected="false">Product</a></li>
+		  		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#product" aria-selected="false">Product</a></li>
 	  			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#about" aria-selected="false">About</a></li>
 	  			<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#contact" aria-selected="false">Contact</a></li>
 			</ul>
 		</nav>
 
-		<!-- Home -->
-        <!-- PC TOP-->
-		<div class="d-none d-md-block w-100 bg-primary text-white text-center p-5">
-			<div class="col-12 mb-5">
-				<h1 class="display-1 mb-2">Portfolio 3Levels</h1>
-			    <p class="lead">Thanks for coming! Please feel free to look at the production!</p>
-			</div>
-			<div class="row pt-3 px-5">
-				<div class="col-4">
-					<h2 class="text-monospace mb-5"><span class="badge bg-white text-primary mr-2">1</span>Design</h2>
-			  		<i class="fas fa-palette fa-5x mb-5"></i>
-					  <p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
-				</div><!-- skil1-->
-		    	<div class="col-4">
-		      		<h2 class="text-monospace mb-5"><span class="badge bg-white text-primary mr-2">2</span>Front End</h2>
-		      		<i class="fas fa-laptop-code fa-5x mb-5"></i>
-		        	<p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
-		    	</div><!-- skil2-->
-		   		<div class="col-4 text-center">
-		      		<h2 class="text-monospace mb-5"><span class="badge bg-white text-primary mr-2">3</span>Back End</h2>
-		      		<i class="fas fas fa-server fa-5x mb-5"></i>
-		        	<p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
-				</div><!-- skil3-->
-			</div><!-- row-->
-        </div><!-- PC TOP END->
-        <!-- SP TOP-->
-        <div class="d-md-none text-center bg-primary text-white py-4">
-			<div class="col-12">
-				<h1 class="display-3 mb-3">Portfolio<br>3Levels</h1>
-			    <p class="lead">Thanks for coming! Please feel free to look at the production!</p>
-             	 <div class="row pt-3">
-	                <div class="col-4 px-1">
-	                  <h2 class="lead text-monospace mb-3">
-	                  	<p class="mb-1"><span class="badge bg-white text-primary">1</span></p>Design</h2>
-	                    <i class="fas fa-palette fa-3x mb-3"></i>
-	                    <p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-down ml-2"></i></a></p>
-	                </div><!-- skil1-->
-                  	<div class="col-4 px-1">
-                      <h2 class="lead text-monospace mb-3">
-                      	<p class="mb-1"><span class="badge bg-white text-primary">2</span></p>FrontEnd</h2>
-                      <i class="fas fa-laptop-code fa-3x mb-3"></i>
-                      <p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-down ml-2"></i></a></p>
-                  	</div><!-- skil2-->
-                  	<div class="col-4 px-">
-                      <h2 class="lead text-monospace mb-3">
-                      	<p class="mb-1"><span class="badge bg-white text-primary mr-1">3</span></p>BackEnd</h2>
-                      <i class="fas fas fa-server fa-3x mb-3"></i>
-                      <p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-down ml-2"></i></a></p>
-                	</div><!-- skil3-->
-              	</div><!-- row-->
-			</div><!-- col-12-->
-        </div><!-- SP TOP END-->
-        <!-- SP TOP-->
+		<!-- Product -->
+		<div class="container">
 
+		    <!-- Design -->
+			<div class="d-none d-md-block">
+				<h3 class="display-5 pt-5"><i class="fas fa-palette fa-1x mr-2"></i>Design</h3>
+			    <hr class="featurette-divider">
+				<div class="d-flex flex-row featurette">
+				    <div class="card col-md-4 mr-3 shadow-sm">
+					  <img class="card-img-top" src="img/top_img.png" alt="Card image cap">
+					  <div class="card-body">
+					    <h4 class="card-title">Card title</h4>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Go somewhere</a>
+					  </div>
+					  <!-- modal -->
+					  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					  <div class="modal-dialog modal-lg">
+					    <div class="modal-content p-5">
+				      	    <div class="row featurette mb-5">
+						      <div class="col-md-7 order-md-2">
+						        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+						        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+						      </div>
+						      <div class="col-md-5 order-md-1">
+						        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+						      </div>
+						    </div>
+						    <div class="row featurette">
+						      <div class="col-md-7 order-md-2">
+						        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+						        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+						      </div>
+						      <div class="col-md-5 order-md-1">
+						        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+						      </div>
+						    </div>
+					    </div>
+					  </div>
+					</div>
+					</div>
+					<div class="card col-md-4 mr-3 shadow-sm">
+					  <img class="card-img-top" src="img/top_img.png" alt="Card image cap">
+					  <div class="card-body">
+					    <h4 class="card-title">Card title</h4>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary">details»</a>
+					  </div>
+					</div>
+					<div class="card col-md-4 shadow-sm">
+					  <img class="card-img-top" src="img/top_img.png" alt="Card image cap">
+					  <div class="card-body">
+					    <h4 class="card-title">Card title</h4>
+					    <p class="card-text">
+					      Some quick example text to build on the card title
+					      and make up the bulk of the card's content.
+					    </p>
+					    <a href="#!" class="btn btn-primary">details»</a>
+					  </div>
+					</div>
+				</div><!-- Design END -->
+				<!-- Front END -->
+				<h3 class="display-5 pt-5"><i class="fas fa-laptop-code fa-1x mr-2"></i>Front End</h3>
+			    <hr class="featurette-divider">
+			</div>
+			<!-- SP-->
+			<div class="d-md-none text-left py-2">
+				<h3 class="display-5 pt-3"><i class="fas fa-palette fa-1x mr-2"></i>Design</h3>
+			    <hr class="featurette-divider">
+				<div class="d-flex flex-sm-row">
+					<a href="#!" data-toggle="modal" data-target=".bd-example-modal-lg" class="mr-2">
+						<div class="card col-md-4 text-dark p-1">
+						  <img class="card-img-top" src="img/top_img.png" alt="Card image cap">
+						  <div class="card-body p-2">
+						    <h4 class="card-title">Card title</h4>
+						    <p class="card-text mb-1">
+						      Some quick example text to build on the card title
+						    </p>
+						    <p class="text-right text-primary mb-0">MORE ></p>
+						  </div>
+						</div>
+					</a>
+					<a href="#!" data-toggle="modal" data-target=".bd-example-modal-lg">
+						<div class="card col-md-4 text-dark p-1">
+						  <img class="card-img-top" src="img/top_img.png" alt="Card image cap">
+						  <div class="card-body p-2">
+						    <h4 class="card-title">Card title</h4>
+						    <p class="card-text mb-1">
+						      Some quick example text to build on the card title
+						    </p>
+						    <p class="text-right text-primary mb-0">MORE ></p>
+						  </div>
+						</div>
+					</a>
+				</div>
+			</div>
+	</div><!-- container-->
+	</div><!-- home-->
 		<!--
 	    <hr class="featurette-divider">
 
