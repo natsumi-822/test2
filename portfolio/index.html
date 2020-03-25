@@ -8,7 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <title>Portfolio 3 levels</title>
+    <title>Portfolio 3 Layers</title>
+
+    <style>
+		.top{
+			background: url(img/top_img.jpg) center center / cover no-repeat fixed;
+		}
+    </style>
 
   </head>
   <body>
@@ -16,7 +22,7 @@
 		<!-- nav PC-->
 		<div class="d-none d-md-block sticky-top">
 			<nav class="navbar bg-white text-secondary p-3">
-				<a class="navbar-brand" href="#!">Portfolio 3Levels</a>
+				<a class="navbar-brand" href="#!">Portfolio 3Layers</a>
 			    <ul class="nav justify-content-end nav-pills">
 			  		<li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
 			  		<li class="nav-item"><a class="nav-link" href="Product.html">Product</a></li>
@@ -27,7 +33,7 @@
 		</div>
 		<!-- nav SP-->
 		<nav class="d-md-none sticky-top navbar bg-white text-secondary px-3 py-2">
-			<a class="navbar-brand mx-1 font-weight-bold" href="#!">3Levels</a>
+			<a class="navbar-brand mx-1 font-weight-bold" href="#!">3Layers</a>
 		    <ul class="nav justify-content-end nav-pills">
 		  		<li class="nav-item"><a class="nav-link active" href="index.html" aria-selected="true">Home</a></li>
 		  		<li class="nav-item"><a class="nav-link" data-toggle="tab" href="Product.html" aria-selected="false">Product</a></li>
@@ -38,33 +44,35 @@
 
 		<!-- Home -->
         <!-- PC TOP-->
-		<div class="d-none d-md-block w-100 bg-primary text-white text-center p-5">
-			<div class="col-12 mb-5">
-				<h1 class="display-1 mb-2">Portfolio 3Levels</h1>
-			    <p class="lead">Thanks for coming! Please feel free to look at the production!</p>
+		<div class="d-none d-md-block">
+			<div class="top w-100 text-center text-white p-5">
+				<div class="col-12 mb-4">
+					<h1 class="display-1 font-weight-bold pt-3 mb-2">Portfolio <span class="text-info">3</span>Layers</h1>
+				    <p class="lead font-weight-bold">Thanks for coming! Please feel free to look at the production!</p>
+				</div>
+				<div class="row pt-3 px-5">
+					<div class="col-4">
+						<h2 class="font-weight-bold mb-3"><span class="display-4 mr-2">1.</span>Design</h2>
+				  		<i class="fas fa-palette fa-5x mb-4"></i>
+						<p><a class="btn btn-info font-weight-bold p-3" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
+					</div><!-- skil1-->
+			    	<div class="col-4">
+			      		<h2 class="font-weight-bold mb-3"><span class="display-4 mr-2">2.</span>Front End</h2>
+			      		<i class="fas fa-laptop-code fa-5x mb-4"></i>
+			        	<p><a class="btn btn-info font-weight-bold p-3" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
+			    	</div><!-- skil2-->
+			   		<div class="col-4 text-center">
+			      		<h2 class="font-weight-bold mb-3"><span class="display-4 mr-2">3.</span>Back End</h2>
+			      		<i class="fas fas fa-server fa-5x mb-4"></i>
+			        	<p><a class="btn btn-info font-weight-bold p-3" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
+					</div><!-- skil3-->
+				</div><!-- row-->
 			</div>
-			<div class="row pt-3 px-5">
-				<div class="col-4">
-					<h2 class="text-monospace mb-5"><span class="badge bg-white text-primary mr-2">1</span>Design</h2>
-			  		<i class="fas fa-palette fa-5x mb-5"></i>
-					  <p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
-				</div><!-- skil1-->
-		    	<div class="col-4">
-		      		<h2 class="text-monospace mb-5"><span class="badge bg-white text-primary mr-2">2</span>Front End</h2>
-		      		<i class="fas fa-laptop-code fa-5x mb-5"></i>
-		        	<p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
-		    	</div><!-- skil2-->
-		   		<div class="col-4 text-center">
-		      		<h2 class="text-monospace mb-5"><span class="badge bg-white text-primary mr-2">3</span>Back End</h2>
-		      		<i class="fas fas fa-server fa-5x mb-5"></i>
-		        	<p><a class="btn btn-light text-primary font-weight-bold" href="#" role="button">details<i class="fas fa-chevron-right ml-2"></i></a></p>
-				</div><!-- skil3-->
-			</div><!-- row-->
-        </div><!-- PC TOP END->
+        </div><!-- PC TOP END-->
         <!-- SP TOP-->
-        <div class="d-md-none text-center bg-primary text-white py-4">
+        <div class="top d-md-none text-center text-white py-4">
 			<div class="col-12">
-				<h1 class="display-3 mb-3">Portfolio<br>3Levels</h1>
+				<h1 class="display-3 font-weight-bold mb-3">Portfolio<br><span class="text-info">3</span>Layers</h1>
 			    <p class="lead">Thanks for coming! Please feel free to look at the production!</p>
              	 <div class="row pt-3">
 	                <div class="col-4 px-1">
@@ -180,31 +188,39 @@
 		<!-- PC footer about-->
 		<div class="d-none d-md-block mt-6">
 			<div class="d-flex flex-row p-5 pr-0">
-		      <div class="col-md-6 order-md-2 pl-3">
-		        <h2 class="display-7">製作者<span class="text-muted ml-2">Natsumi Masui</span></h2>
+		      <div class="col-md-6 order-md-2 pl-2 pr-4 border-right">
+		        <h2 class="display-5">製作者<span class="text-muted ml-2">Natsumi Masui</span></h2>
 		        <p class="mb-1">webデザイナー兼エンジニアをしています。<br>日本で働いてます。お越しいただきありがとうございます。</p>
 		        <p class="text-truncate mb-3">I am a Japanese Web Designer and Engineer. I work in Japan. Thanks for coming.</p>
-		        <p class="text-muted display-5">Contact > <i class="fas fa-envelope-open-text mr-2" aria-hidden="true"></i>822genico@gmail.com</p>
 		        <p class="text-right mb-0">
 		        	<button type="button" class="btn btn-outline-primary">
-		        		<a class="nav-link" href="about.html">MORE ></a>
+		        		<a class="nav-link p-0" href="about.html">MORE ></a>
 		        	</button>
 		        </p>
 		      </div>
+
 		      <div class="col-md-2 order-md-1 border-right">
 		        <ul class="list-group">
-				  <li class="list-group-item border-0 bg-light font-weight-bold p-1 text-muted">Portfolio 3Levels</li>
-				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">Home</a></li>
-				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">Product</a></li>
-				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">About</a></li>
-				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">Contact</a></li>
+				  <li class="list-group-item border-0 bg-light font-weight-bold p-1 text-muted">Portfolio 3Layers</li>
+				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">> Home</a></li>
+				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">> Product</a></li>
+				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">> About</a></li>
+				  <li class="list-group-item border-0 bg-light p-0 text-primary"><a class="nav-link py-1 pl-3" href="index.html">> Contact</a></li>
 				</ul>
 		      </div>
-		      <div class="col-md-2 order-md-1 pl-5">
-		        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="200" height="200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect fill="#eee" width="100%" height="100%"></rect><text fill="#aaa" dy=".3em" x="50%" y="50%">500x500</text></svg>
+		      <div class="col-md-2 order-md-1 pl-4">
+		        <img src="img/about.jpg" alt="profileImg" width="170">
+		      </div>
+		      <div class="col-md-2 order-md-3 pl-5 text-center">
+		      	<h3 class="display-5">Contact</h3>
+		      	<span class="fa-stack fa-2x my-2">
+				  <i class="fas fa-circle fa-stack-2x text-dark"></i>
+				  <i class="fas fa-envelope-open-text mr-2 fa-stack-1x text-white"></i>
+				</span>
+		        <p class="text-muted display-5">822genico@gmail.com</p>
 		      </div>
 		    </div>
-   			<p class="bg-dark text-muted text-center p-2 mb-0">© 2020 All rights reserved. NatsumiMasui</p>
+   			<p class="bg-dark text-muted text-center p-3 mb-0">Portfolio 3 Layers | © 2020 NatsumiMasui ALL RIGHTS RESERVED.</p>
 		</div><!-- PC TOP about END-->
 		<!-- SP footer about-->
 		<div class="d-md-none bg-light row px-3 py-5">
