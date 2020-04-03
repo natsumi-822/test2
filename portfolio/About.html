@@ -10,37 +10,6 @@
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <title>Portfolio 3 Layers</title>
 
-    <style>
-		.top{
-			background: url(img/top_img.jpg) center center / cover no-repeat fixed;
-		}
-		
-		.animation {
-		  animation: animation-rotation 1.5s ease 0s 1 normal;
-		}
-		.animationFontSize {
-		  animation: animation-FontSize 1.5s ease 0s 1 normal;
-		}
-		@keyframes animation-rotation {
-		  from {
-		  		transform: rotate(0deg);
-		  		opacity:0;
-		  }
-		  to {
-		  		transform: rotate(360deg);
-		  		opacity:1;
-		  }
-		}
-		@keyframes animation-FontSize {
-		  from {
-		  		font-size: 1px;
-		  }
-		  to {
-		  		font-size: 6rem;
-		  }
-		}
-    </style>
-
   </head>
   <body>
 	<main>
@@ -49,9 +18,9 @@
 			<nav class="navbar navbar-dark bg-dark text-secondary p-3">
 				<a class="navbar-brand" href="#!">Portfolio <span class="text-info">3</span>Layers</a>
 			    <ul class="nav justify-content-end nav-pills">
-			  		<li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 			  		<li class="nav-item"><a class="nav-link" href="Product.html">Product</a></li>
-		  			<li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+		  			<li class="nav-item"><a class="nav-link active" href="About.html">About</a></li>
 		  			<li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
 				</ul>
 			</nav>
@@ -72,137 +41,19 @@
 			</div>
 		</nav>
 
-		<!-- Home -->
-        <!-- PC TOP-->
-		<div class="d-none d-md-block">
-			<div class="top w-100 text-center text-white p-5">
-				<div class="col-12">
-					<h1 class="display-1 font-weight-bold mb-1">Portfolio <span class="text-info animationFontSize">3</span>Layers</h1>
-				    <small class="lead font-weight-bold">Thanks for coming! Please feel free to look at the production!</small>
-				</div>
-				<div class="row px-5 pt-4">
-					<div class="col-4">
-						<h2 class="mb-2 font-weight-bold animation"><span class="text-info display-4 font-weight-bold mr-2">1</span>Design</h2>
-				  		<span class="fa-stack fa-5x animation">
-					  		<i class="fas fa-circle fa-stack-2x text-info"></i>
-					  		<i class="fas fa-palette fa-stack-1x text-white"></i>
-						</span>
-						 <ul class="list-group">
-						  <li class="list-group-item lead border-0 bg-transparent font-weight-bold pb-1">Category</li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>WEBデザイン</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>アプリデザイン</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>イラストレーション</small></li>
-						</ul>
-				  	</div><!-- skil1-->
-			    	<div class="col-4">
-			      		<h2 class="mb-2 font-weight-bold animation"><span class="text-info display-4 font-weight-bold mr-2">2</span>Front End</h2>
-			      		<span class="fa-stack fa-5x animation">
-					  		<i class="fas fa-circle fa-stack-2x text-info"></i>
-					  		<i class="fas fa-laptop-code fa-stack-1x text-white"></i>
-						</span>
-						<ul class="list-group">
-						  <li class="list-group-item lead border-0 bg-transparent font-weight-bold pb-1">Category</li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>HTML・CSS/Sass・javascript</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>PHP</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>bootstrap</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>レスポンシブ対応</small></li>
-						</ul>
-			    	</div><!-- skil2-->
-			   		<div class="col-4">
-			      		<h2 class=" mb-2 font-weight-bold animation"><span class="text-info display-4 font-weight-bold mr-2">3</span>Back End</h2>
-			      		<span class="fa-stack fa-5x animation">
-					  		<i class="fas fa-circle fa-stack-2x text-info"></i>
-					  		<i class="fas fa-server fa-stack-1x text-white"></i>
-						</span>
-						<ul class="list-group">
-						  <li class="list-group-item lead border-0 bg-transparent font-weight-bold pb-1">Category</li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>JAVA</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>My SQL</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>Python</small></li>
-						</ul>
-					</div><!-- skil3-->
-				</div><!-- row-->
-			</div>
-        </div><!-- PC TOP END-->
-        <!-- SP TOP-->
-        <div class="top d-md-none text-center text-white py-4">
-			<div class="col-12">
-				<h1 class="display-3 font-weight-bold mb-3">Portfolio<br><span class="text-info">3</span>Layers</h1>
-			    <p class="lead">Thanks for coming! Please feel free to look at the production!</p>
-             	 <div class="row py-2">
-	                <div class="col-4 px-1">
-		              <span class="fa-stack fa-2x animation mb-2">
-		              	<i class="fas fa-circle fa-stack-2x text-info"></i>
-		                <i class="fas fa-palette fa-stack-1x text-white"></i>
-		              </span>
-		              <h2 class="lead font-weight-bold mb-2">
-	                  	<span class="badge badge-primary mr-1">1</span>Design
-	                  </h2>
-	                  <ul class="list-group">
-						<li class="list-group-item border-0 bg-transparent p-0"><small>WEBデザイン</small></li>
-						<li class="list-group-item border-0 bg-transparent p-0"><small>アプリデザイン</small></li>
-						<li class="list-group-item border-0 bg-transparent p-0"><small>イラスト</small></li>
-					  </ul>
-	                </div><!-- skil1-->
-                  	<div class="col-4 px-1">
-                      	<span class="fa-stack fa-2x animation mb-2">
-                      		<i class="fas fa-circle fa-stack-2x text-info"></i>
-                     		<i class="fas fa-laptop-code fa-stack-1x text-white"></i>
-                     	</span>
-	                    <h2 class="lead font-weight-bold mb-2">
-	                      <span class="badge badge-primary mr-1">2</span>FrontEnd
-	                    </h2>
-                     	<ul class="list-group">
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>HTML・CSS/Sass<br>javascript</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>PHP</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>bootstrap</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>レスポンシブ対応</small></li>
-						</ul>
-                  	</div><!-- skil2-->
-                  	<div class="col-4 px-1">
-                      	<span class="fa-stack fa-2x animation mb-2">
-                      		<i class="fas fa-circle fa-stack-2x text-info"></i>
-                      		<i class="fas fas fa-server fa-stack-1x text-white"></i>
-                      	</span>
-                      	<h2 class="lead font-weight-bold mb-2">
-                      		<span class="badge badge-primary mr-1">3</span>BackEnd
-                      	</h2>
-                      	<ul class="list-group">
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>JAVA</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>My SQL</small></li>
-						  <li class="list-group-item border-0 bg-transparent p-0"><small>Python</small></li>
-						</ul>
-                	</div><!-- skil3-->
-              	</div><!-- row-->
-			</div><!-- col-12-->
-        </div><!-- SP TOP END-->
-        <!-- SP TOP-->
-
-        <!-- PC Works-->
-		<div class="w-100 p-5 my-4 text-center">
-			<h2 class="display-4 font-weight-bold">Works</h2>
-			<small class="text-muted">お仕事で制作したものなど</small>
-			<div class="d-flex mt-5 mb-5 text-left">
-				<a href="#" class="pr-4 card-link text-secondary">
-					<img src="img/product_02_1.jpg" class="img-thumbnail mb-1" alt="worksImage">
-					<h4 class="font-weight-bold text-dark border-bottom py-3 mb-3">株式会社さぶろくかんぱにー</h4>
-					<p class="mb-1"><strong>Category</strong></p>
-					<small>基本設計・画面設計、コンテンツ提案、デザイン、HTMLコーディング、お問い合わせフォーム、レスポンシブWEBデザイン</small>
-				</a>
-				<a href="#" class="pr-4 card-link text-secondary">
-					<img src="img/product_01.jpg" class="img-thumbnail mb-1" alt="worksImage">
-					<h4 class="font-weight-bold text-dark border-bottom py-3 mb-3">株式会社さぶろくかんぱにー</h4>
-					<p class="mb-1"><strong>Category</strong></p>
-					<small>基本設計・画面設計、コンテンツ提案、デザイン、HTMLコーディング、お問い合わせフォーム、レスポンシブWEBデザイン</small>
-				</a>
-				<a href="#" class="pr-4 card-link text-secondary">
-					<img src="img/product_01.jpg" class="img-thumbnail mb-1" alt="worksImage">
-					<h4 class="font-weight-bold text-dark border-bottom py-3 mb-3">株式会社さぶろくかんぱにー</h4>
-					<p class="mb-1"><strong>Category</strong></p>
-					<small>基本設計・画面設計、コンテンツ提案、デザイン、HTMLコーディング、お問い合わせフォーム、レスポンシブWEBデザイン</small>
-				</a>
-			</div>
-			<button type="button" class="btn btn-primary px-5 py-2"><a href="Product.html" class="text-white">View All Products<i class="fas fa-chevron-right ml-3"></i></a></button>
+		<!-- About -->
+		<div class="content p-5">
+			<h1 class="display-4 mb-5">About</h1>
+			<div class="d-flex">
+	      		<div class="col-1">
+		      		<img src="img/about.jpg" class="rounded-circle" alt="aboutImg" width="100%">
+		      	</div>
+		      	<div class="col-11">
+		      		<p class="text-muted mb-0">製作者<small> (ますい なつみ)</small></p>
+			        <h2 class="mb-3"><strong>Natsumi Masui</strong></h2>
+			        <p>2014年3月 HAL東京WEBプログラミング学科を卒業。</p>
+			    </div>
+	        </div>
 		</div>
 		<!--
 	    <hr class="featurette-divider">
